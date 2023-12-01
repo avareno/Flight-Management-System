@@ -19,14 +19,11 @@ bool checkIfEmpty(const string& filename){ ///< Checks if the file is empty. \n 
 
 int main() { ///< Displays the menu of choices for the user.
     Reader read;
-    read.read_airports();
-    read.read_airlines();
-/*
-    Reader read;
     read.read_flights();
     read.read_airlines();
     read.read_airports();
 
+/*
     bool finish = false;
     while (!finish) {
         cout

@@ -3,9 +3,7 @@
 
 using namespace std;
 
-Airlines::Airlines(const string &code, const string &name, const string &callsign, const string &country,
-                   string basicString,
-                   string string1)
+Airlines::Airlines(const string &code, const string &name, const string &callsign, const string &country)
         :  code_(code), name_(name), callsign_(callsign), country_(country) {}
 
 void Airlines::print() const{

@@ -15,7 +15,7 @@ bool Reader::fileExists(const string& filename) {
     return file.good();
 }
 
-void Reader::read_flights() { // TODO: Criar 'graph' de todos os voos 'edges' com cada voo, e posteriormente cria 'nodes'
+void Reader::read_flights() { // TODO: Criar 'graph' de todos os voos, 'edges' com cada voo, e posteriormente cria 'nodes'
     Reader read;
     if (read.fileExists("flights.csv")) {
         ifstream in("flights.csv");
@@ -27,7 +27,7 @@ void Reader::read_flights() { // TODO: Criar 'graph' de todos os voos 'edges' co
 
 void Reader::read_airlines() {
     Reader read;
-    vector<string> All_Airlines;
+    vector<Airlines> All_Airlines;
     if (read.fileExists("airlines.csv")) {
         ifstream in("airlines.csv");
         string line;
@@ -37,20 +37,17 @@ void Reader::read_airlines() {
             string AirCode, AirName, Callsign, AirCountry;
             istringstream iss(line);
             getline(iss, AirCode, ',');
-            All_Airlines.push_back(AirCode);
             getline(iss, AirName, ',');
-            All_Airlines.push_back(AirName);
             getline(iss, Callsign, ',');
-            All_Airlines.push_back(Callsign);
             getline(iss, AirCountry);
-            All_Airlines.push_back(AirCountry);
+            All_Airlines.emplace_back(AirCode, AirName, Callsign, AirCountry);
         }
     }
 }
 
 void Reader::read_airports() {
     Reader read;
-    vector<string> All_Airports;
+    vector<Airports> All_Airports;
     if (read.fileExists("airports.csv")) {
         ifstream in("airports.csv");
         string line;
@@ -60,17 +57,15 @@ void Reader::read_airports() {
             string AirCode, AirName, AirCity, AirCountry, Latitude, Longitude;
             istringstream iss(line);
             getline(iss, AirCode, ',');
-            All_Airports.push_back(AirCode);
             getline(iss, AirName, ',');
-            All_Airports.push_back(AirName);
             getline(iss, AirCity, ',');
-            All_Airports.push_back(AirCity);
             getline(iss, AirCountry, ',');
-            All_Airports.push_back(AirCountry);
             getline(iss, Latitude, ',');
-            All_Airports.push_back(Latitude);
+            float Lat = stof(Latitude);
             getline(iss, Longitude);
-            All_Airports.push_back(Longitude);}
+            float Long = stof(Longitude);
+            All_Airports.emplace_back(AirCode, AirName, AirCity, AirCountry, Lat, Long);
+        }
     }
 }
 

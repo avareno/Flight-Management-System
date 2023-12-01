@@ -9,8 +9,7 @@ using namespace std;
 
 class Airlines {
 public:
-    Airlines(const string &code, const string &name, const string &callsign, const string &country, string basicString,
-             string string1);
+    Airlines(const string &code, const string &name, const string &callsign, const string &country);
     void print() const; ///< Complexity: O(1)
     string getCode() const; ///< Complexity: O(1)
     string getName() const; ///< Complexity: O(1)
