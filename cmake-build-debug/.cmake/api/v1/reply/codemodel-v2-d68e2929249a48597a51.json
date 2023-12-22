@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Projeto_AED::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Projeto_AED-Debug-d95f8e0add41295f2f70.json",
+					"jsonFile" : "target-Projeto_AED-Debug-c751571889473322984e.json",
 					"name" : "Projeto_AED",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

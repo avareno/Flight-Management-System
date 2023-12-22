@@ -10,12 +10,10 @@ add_executable(Projeto_AED
         Files/Header/Airports.h
         Files/Header/Display.h
         Files/Header/Flights.h
-        Files/Header/Graph.h
         Files/Header/Reader.h
         Files/Source/Airlines.cpp
         Files/Source/Airports.cpp
         Files/Source/Display.cpp
         Files/Source/Flights.cpp
-        Files/Source/Graph.cpp
         Files/Source/Reader.cpp
         main.cpp)
