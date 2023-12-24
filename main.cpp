@@ -18,10 +18,7 @@ bool checkIfEmpty(const string& filename){ ///< Checks if the file is empty. \n 
 }
 
 int main() { ///< Displays the menu of choices for the user.
-    Reader read;
-    read.read_flights();
-    read.read_airlines();
-    read.read_airports();
+    return 0;
 
 /*
     bool finish = false;

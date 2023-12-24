@@ -9,6 +9,7 @@
 #include <vector>
 #include "Airlines.h"
 #include "Airports.h"
+#include "Graph.h"
 
 using namespace std;
 
@@ -16,9 +17,9 @@ class Reader {
 public:
     Reader();
     bool fileExists(const string& filename);
-    void read_flights();
-    void read_airlines();
-    void read_airports();
+    void read_flights(Graph<Airports> *g);
+    vector<Airlines> read_airlines(Graph<Airports> *g);
+    void read_airports(Graph<Airports> *g);
     int Size(vector <string> something);
 private:
     vector<Airports> All_Airports;

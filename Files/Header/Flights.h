@@ -6,6 +6,7 @@
 #define PROJETO_AED_FLIGHTS_H
 
 #include <string>
+#include "Graph.h"
 
 using namespace std;
 

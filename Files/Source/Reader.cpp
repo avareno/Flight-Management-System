@@ -15,7 +15,7 @@ bool Reader::fileExists(const string& filename) {
     return file.good();
 }
 
-void Reader::read_flights() { // TODO: Criar 'graph' de todos os voos, 'edges' com cada voo, e posteriormente cria 'nodes'
+void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos os voos, 'edges' com cada voo, e posteriormente cria 'nodes'
     Reader read;
     if (read.fileExists("flights.csv")) {
         ifstream in("flights.csv");
@@ -25,7 +25,7 @@ void Reader::read_flights() { // TODO: Criar 'graph' de todos os voos, 'edges' c
     }
 }
 
-void Reader::read_airlines() {
+vector<Airlines> Reader::read_airlines(Graph<Airports> *g) {
     Reader read;
     vector<Airlines> All_Airlines;
     if (read.fileExists("airlines.csv")) {
@@ -40,14 +40,15 @@ void Reader::read_airlines() {
             getline(iss, AirName, ',');
             getline(iss, Callsign, ',');
             getline(iss, AirCountry);
-            All_Airlines.emplace_back(AirCode, AirName, Callsign, AirCountry);
+            Airlines New = Airlines(AirCode, AirName, Callsign, AirCountry);
+            All_Airlines.push_back(New);
         }
     }
+    return All_Airlines;
 }
 
-void Reader::read_airports() {
+void Reader::read_airports(Graph<Airports> *g) {
     Reader read;
-    vector<Airports> All_Airports;
     if (read.fileExists("airports.csv")) {
         ifstream in("airports.csv");
         string line;
@@ -64,7 +65,8 @@ void Reader::read_airports() {
             float Lat = stof(Latitude);
             getline(iss, Longitude);
             float Long = stof(Longitude);
-            All_Airports.emplace_back(AirCode, AirName, AirCity, AirCountry, Lat, Long);
+            const Airports New = Airports(AirCode, AirName, AirCity, AirCountry, Lat, Long);
+            g->addVertex(New);
         }
     }
 }

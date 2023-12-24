@@ -2,6 +2,7 @@
 // Created by goncalo_feup on 27-11-2023.
 //
 #include <string>
+#include "Graph.h"
 #ifndef PROJETO_AED_AIRPORTS_H
 #define PROJETO_AED_AIRPORTS_H
 

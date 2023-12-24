@@ -1,7 +1,7 @@
 //
 // Created by goncalo_feup on 28-11-2023.
 //
-
+#include "Graph.h"
 #ifndef PROJETO_AED_DISPLAY_H
 #define PROJETO_AED_DISPLAY_H
 
