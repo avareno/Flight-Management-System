@@ -3,6 +3,7 @@
 #include <sstream>
 #include <algorithm>
 #include "Reader.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -18,7 +19,15 @@ bool checkIfEmpty(const string& filename){ ///< Checks if the file is empty. \n 
 }
 
 int main() { ///< Displays the menu of choices for the user.
+    Reader r;
+    Graph<Airports> g;
+    r.read_airlines(&g);
+    r.read_airports(&g);
+    //r.read_flights(&g);
+    Menu m = Menu();
     return 0;
+
+
 
 /*
     bool finish = false;
