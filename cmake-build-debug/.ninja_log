@@ -82,3 +82,6 @@
 1	252	1703601324011856206	CMakeFiles/Projeto_AED.dir/main.cpp.o	8acadba99e0fcc9f
 1	242	1703601626748277460	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	3daa6373dd5e0bfd
 0	254	1703601626764277934	CMakeFiles/Projeto_AED.dir/main.cpp.o	8acadba99e0fcc9f
+0	197	1703603312967059397	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	3daa6373dd5e0bfd
+1	391	1703603313163063433	CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o	1dba8367095f949e
+391	444	1703603313215064505	Projeto_AED	adb190adb8cde890
