@@ -29,7 +29,7 @@ class Vertex {
     int num;               // auxiliary field
     int low;               // auxiliary field
 
-    void addEdge(Vertex<T> *dest, double w);
+    void addEdge(Vertex<T> *dest, double w, string basicString);
     bool removeEdgeTo(Vertex<T> *d);
 public:
     Vertex(T in);
@@ -241,7 +241,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w, string AL_code) 
     auto v2 = findVertex(dest);
     if (v1 == NULL || v2 == NULL)
         return false;
-    v1->addEdge(v2,w,AL_code);
+    v1->addEdge(v2, w, AL_code);
     return true;
 }
 
@@ -250,7 +250,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w, string AL_code) 
  * with a given destination vertex (d) and edge weight (w).
  */
 template <class T>
-void Vertex<T>::addEdge(Vertex<T> *d, double w) {
+void Vertex<T>::addEdge(Vertex<T> *d, double w, string basicString) {
     adj.push_back(Edge<T>(d, w));
 }
 

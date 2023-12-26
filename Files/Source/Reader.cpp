@@ -30,7 +30,22 @@ void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos 
             getline(iss, Target, ',');
             getline(iss, AL_code, ',');
             Flights New = Flights(Source, Target, AL_code);
-            g->addEdge(Source, Target, AL_code);
+
+            double lat1, lon1, lat2, lon2;
+
+            for (auto airport : g->getVertexSet()) {
+                if (airport->getInfo().getCode() == Source) {
+                    lat1 = airport->getInfo().getLatitude();
+                    lon1 = airport->getInfo().getLongitude();
+                    Airports s = airport->getInfo();
+                }
+                else if (airport->getInfo().getCode() == Target) {
+                    lat2 = airport->getInfo().getLatitude();
+                    lon2 = airport->getInfo().getLongitude();
+                    Airports t = airport->getInfo();
+                }
+            }
+            g->addEdge(Source, Target, New.Haversine_d(lat1, lon1, lat2, lon2), AL_code);
         }
     }
 }
@@ -75,7 +90,7 @@ void Reader::read_airports(Graph<Airports> *g) {
             float Lat = stof(Latitude);
             getline(iss, Longitude);
             float Long = stof(Longitude);
-            const Airports New = Airports(AirCode, AirName, AirCity, AirCountry, Lat, Long);
+            Airports New = Airports(AirCode, AirName, AirCity, AirCountry, Lat, Long);
             g->addVertex(New);
         }
     }

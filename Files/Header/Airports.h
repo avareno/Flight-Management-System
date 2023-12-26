@@ -19,6 +19,7 @@ public:
     string getCountry() const; ///< Complexity: O(1)
     float getLatitude() const; ///< Complexity: O(1)
     float getLongitude() const; ///< Complexity: O(1)
+    bool operator==(const Airports& other) const;
 private:
     string code_;
     string name_;
