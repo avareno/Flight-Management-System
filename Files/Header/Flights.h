@@ -17,6 +17,7 @@ public:
     string getSource() const; ///< Complexity: O(1)
     string getTarget() const; ///< Complexity: O(1)
     string getAL_code() const; ///< Complexity: O(1)
+    double Haversine_d(double &lat1, double& lon1, double &lat2, double& lon2) const;
 private:
     string source_;
     string target_;

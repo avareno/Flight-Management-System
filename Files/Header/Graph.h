@@ -60,6 +60,7 @@ public:
 template <class T>
 class Edge {
     Vertex<T> * dest;      // destination vertex
+    string AL_code;
     double weight;         // edge weight
 public:
     Edge(Vertex<T> *d, double w);
@@ -85,7 +86,7 @@ public:
     int getNumVertex() const;
     bool addVertex(const T &in);
     bool removeVertex(const T &in);
-    bool addEdge(const T &sourc, const T &dest, double w);
+    bool addEdge(const T &sourc, const T &dest, double w, string AL_code);
     bool removeEdge(const T &sourc, const T &dest);
     vector<Vertex<T> * > getVertexSet() const;
     vector<T> dfs() const;
@@ -235,12 +236,12 @@ bool Graph<T>::addVertex(const T &in) {
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
 template <class T>
-bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
+bool Graph<T>::addEdge(const T &sourc, const T &dest, double w, string AL_code) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == NULL || v2 == NULL)
         return false;
-    v1->addEdge(v2,w);
+    v1->addEdge(v2,w,AL_code);
     return true;
 }
 

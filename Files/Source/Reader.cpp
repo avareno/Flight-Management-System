@@ -5,6 +5,7 @@
 #include "Airlines.h"
 #include "Airports.h"
 #include "Graph.h"
+#include "Flights.h"
 
 using namespace std;
 
@@ -21,7 +22,16 @@ void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos 
         ifstream in("flights.csv");
         string line;
         getline(in, line);
-        // TODO: continue
+        while (getline(in, line)) {
+            if (line.find('\r') != string::npos) line.pop_back();
+            string Source, Target, AL_code;
+            istringstream iss(line);
+            getline(iss, Source, ',');
+            getline(iss, Target, ',');
+            getline(iss, AL_code, ',');
+            Flights New = Flights(Source, Target, AL_code);
+            g->addEdge(Source, Target, AL_code);
+        }
     }
 }
 
