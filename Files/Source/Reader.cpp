@@ -35,16 +35,18 @@ void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos 
             Airports s = Airports("a", "a", "a", "a", 0.0, 0.0);
             Airports t = Airports("a", "a", "a", "a", 0.0, 0.0);
 
-            for (auto airport : g->getVertexSet()) {
+            for (auto &airport : g->getVertexSet()) {
                 if (airport->getInfo().getCode() == Source) {
                     lat1 = airport->getInfo().getLatitude();
                     lon1 = airport->getInfo().getLongitude();
                     s = airport->getInfo();
+                    airport->setOutdegree(airport->getOutdegree()+1);
                 }
                 else if (airport->getInfo().getCode() == Target) {
                     lat2 = airport->getInfo().getLatitude();
                     lon2 = airport->getInfo().getLongitude();
                     t = airport->getInfo();
+                    airport->setIndegree(airport->getIndegree()+1);
                 }
             }
             g->addEdge(s, t, New.Haversine_d(lat1, lon1, lat2, lon2), AL_code);

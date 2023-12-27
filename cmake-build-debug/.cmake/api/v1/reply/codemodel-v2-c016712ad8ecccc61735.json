@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Projeto_AED::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Projeto_AED-Debug-d4fc05dc01074c4efe85.json",
+					"jsonFile" : "target-Projeto_AED-Debug-123f9faa8c8783e86715.json",
 					"name" : "Projeto_AED",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug",
-		"source" : "/home/avareno/CLionProjects/AED/Projeto_AED_2"
+		"build" : "/home/goncalo_feup/Desktop/AED/Projeto_2/Projeto_AED/cmake-build-debug",
+		"source" : "/home/goncalo_feup/Desktop/AED/Projeto_2/Projeto_AED"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

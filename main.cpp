@@ -23,8 +23,9 @@ int main() { ///< Displays the menu of choices for the user.
     Graph<Airports> g;
     r.read_airlines(&g);
     r.read_airports(&g);
-    //r.read_flights(&g);
+    r.read_flights(&g);
     Menu m = Menu();
+    m.request(g);
     return 0;
 
 

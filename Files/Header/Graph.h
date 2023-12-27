@@ -26,6 +26,7 @@ class Vertex {
     bool visited;          // auxiliary field
     bool processing;       // auxiliary field
     int indegree;          // auxiliary field
+    int outdegree;          // auxiliary field
     int num;               // auxiliary field
     int low;               // auxiliary field
 
@@ -45,6 +46,10 @@ public:
     int getIndegree() const;
 
     void setIndegree(int indegree);
+
+    int getOutdegree() const;
+
+    void setOutdegree(int outdegree);
 
     int getNum() const;
 
@@ -182,6 +187,16 @@ void Vertex<T>::setIndegree(int indegree) {
 }
 
 template<class T>
+int Vertex<T>::getOutdegree() const {
+    return outdegree;
+}
+
+template<class T>
+void Vertex<T>::setOutdegree(int outdegree) {
+    Vertex::outdegree = outdegree;
+}
+
+template<class T>
 int Vertex<T>::getNum() const {
     return num;
 }
@@ -221,6 +236,7 @@ void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
  *  Adds a vertex with a given content or info (in) to a graph (this).
  *  Returns true if successful, and false if a vertex with that content already exists.
  */
+
 template <class T>
 bool Graph<T>::addVertex(const T &in) {
     if ( findVertex(in) != NULL)

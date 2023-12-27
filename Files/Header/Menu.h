@@ -6,13 +6,14 @@
 #define PROJETO_AED_MENU_H
 
 
+#include "Airports.h"
+
 class Menu {
 public:
-    int getOption() const;
-
-    void setOption(int option);
-
     Menu();
+    int getOption() const;
+    void setOption(int option);
+    void request(Graph<Airports> g);
 private:
     int option;
 
