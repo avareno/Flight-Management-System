@@ -18,8 +18,6 @@ void Menu::setOption(int option) {
 }
 
 Menu::Menu() {
-    cout << '\n';
-    cout << "Select from one of the following options:" << endl;
     cout << "1. Add Airport" << endl;
     cout << "2. Add Flight" << endl;
     cout << "3. Display Airports" << endl;
@@ -52,14 +50,14 @@ bool is_upper(const string& text) {
     return true;
 }
 
-bool Menu::request(Graph<Airports> g) {
+void Menu::request(Graph<Airports> g) {
     string input;
     cout << ">> ";
     cin >> input;
     cout << '\n';
     if(input.length() != 1 || !isdigit(input[0])) {
         cout << "Invalid input key" << endl;
-        return false;
+        return;
     }
 
     if (input == "1") {
@@ -72,38 +70,38 @@ bool Menu::request(Graph<Airports> g) {
 
         if(AirCode.length() != 3 || is_number(AirCode) || !is_upper(AirCode)) {
             cout << "Invalid input key" << endl;
-            return false;
+            return;
         }
 
         cout << "Airport Name:" << endl;
         cout << ">> " ;
-        getline(cin >> ws,AirName);
+        cin >> AirName;
         cout << endl;
 
         if(is_number(AirName)) {
             cout << "Invalid input key" << endl;
-            return false;
+            return;
         }
 
         cout << "Airport City:" << endl;
         cout << ">> " ;
-        getline(cin >> ws,AirCity);
+        cin >> AirCity;
         cout << endl;
 
         if(is_number(AirCity)) {
             cout << "Invalid input key" << endl;
-            return false;
+            return;
         }
 
         cout << "Airport Country:" << endl;
         cout << ">> " ;
-        getline(cin >> ws,AirCountry);
+        cin >> AirCountry;
         cout << endl;
 
 
         if(is_number(AirCountry)) {
             cout << "Invalid input key" << endl;
-            return false;
+            return;
         }
 
         cout << "Airport Latitude:" << endl;
@@ -113,7 +111,7 @@ bool Menu::request(Graph<Airports> g) {
 
         if(!is_number(Latitude) || stod(Latitude)>90 || stod(Latitude)<-90) {
             cout << "Invalid input key" << endl;
-            return false;
+            return;
         }
 
         cout << "Airport Longitude:" << endl;
@@ -123,7 +121,7 @@ bool Menu::request(Graph<Airports> g) {
 
         if(!is_number(Longitude) || stod(Longitude)>180 || stod(Longitude)<-180) {
             cout << "Invalid input key" << endl;
-            return false;
+            return;
         }
         /*
         Airports New = Airports(AirCode, AirName, AirCity, AirCountry, stod(Latitude), stod(Longitude));
@@ -132,9 +130,6 @@ bool Menu::request(Graph<Airports> g) {
 
         cout << "Airport " << AirName << " added." << endl;
 
-        return false;
-    }
-    if (input == "5") {
-        return true;
+        return;
     }
 }

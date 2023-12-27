@@ -24,10 +24,8 @@ int main() { ///< Displays the menu of choices for the user.
     r.read_airlines(&g);
     r.read_airports(&g);
     r.read_flights(&g);
-    while (true) {
     Menu m = Menu();
-    if (m.request(g)) break;
-    }
+    m.request(g);
     return 0;
 
 
