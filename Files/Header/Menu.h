@@ -13,7 +13,7 @@ public:
     Menu();
     int getOption() const;
     void setOption(int option);
-    void request(Graph<Airports> g);
+    bool request(Graph<Airports> g);
 private:
     int option;
 
