@@ -102,6 +102,5 @@ void Reader::read_airports(Graph<Airports> *g) {
 
 int Reader::Size(vector <string> something) {
 
-
 }
 
