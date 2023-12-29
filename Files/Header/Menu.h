@@ -12,11 +12,8 @@
 class Menu {
 public:
     Menu();
-    int getOption() const;
-    void setOption(int option);
     bool request(Graph<Airports> g);
 private:
-    int option;
     AuxiliarFunctions aux;
 };
 

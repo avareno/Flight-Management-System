@@ -4,12 +4,12 @@
 
 #include "AuxiliarFunctions.hpp"
 #include "Airports.h"
-#include <iostream>
+#include <math.h>
 #include <queue>
 
 using namespace std;
 
-bool AuxiliarFunctions::findVertex(Graph<Airports>* g, string code, Airports &res) {
+bool AuxiliarFunctions::findVertexCode(Graph<Airports>* g, string code, Airports &res) {
     for (auto v : g->getVertexSet()) {
         if (v->getInfo().getCode() == code) {
             res = v->getInfo();
@@ -28,6 +28,7 @@ bool AuxiliarFunctions::findVertexCity(Graph<Airports>* g, string city, Airports
     }
     return false;
 }
+
 
 
 vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g, const Airports& source, const Airports& destination) {
@@ -104,4 +105,13 @@ bool AuxiliarFunctions::is_upper(const string& text) {
         }
     }
     return true;
+}
+
+
+float AuxiliarFunctions::calculate_distance(float slong, float slat, float dlong, float dlat) {// usage of haversine formula
+    float res;
+    float fmem = pow(sin((dlat - slat) / 2),2);
+    float smem = cos(slat) * cos(dlat) * pow(sin((dlong - slong) / 2), 2);
+    res = 2 * atan2(sqrt(fmem + smem), sqrt(1 - fmem - smem));
+    return res;
 }

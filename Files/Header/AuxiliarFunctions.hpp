@@ -11,7 +11,7 @@
 
 class AuxiliarFunctions {
 public:
-    bool findVertex(Graph<Airports> *g, string city, Airports &res);
+    bool findVertexCode(Graph<Airports> *g, string code, Airports &res);
 
 
     vector<vector<Airports>>
@@ -22,6 +22,8 @@ public:
     bool is_number(const string &input);
 
     bool is_upper(const string &text);
+
+    float calculate_distance(float slong, float slat, float dlong, float dlat);
 };
 
 

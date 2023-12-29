@@ -132,16 +132,16 @@ bool Menu::request(Graph<Airports> g) {
                 cout << endl;
 
                 Airports s, d;
-                if (!aux.findVertex(&g, source, s) || !aux.findVertex(&g, dest, d)) {
+                if (!aux.findVertexCode(&g, source, s) || !aux.findVertexCode(&g, dest, d)) {
                     cout << "Invalid Airport code" << endl;
                     return false;
                 }
 
-                cout << "Best Flight: " << endl;
                 vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
                 if (allPaths.size() == 0) {
                     cout << "No path found" << endl;
                 } else {
+                    cout << "Best Flight: " << endl;
                     for (const auto &path: allPaths) {
                         for (size_t i = 0; i < path.size(); ++i) {
                             cout << path[i].getName();
@@ -150,7 +150,6 @@ bool Menu::request(Graph<Airports> g) {
                             }
                         }
                         cout << endl;
-
                     }
                 }
             }else if(n==2){
@@ -182,12 +181,96 @@ bool Menu::request(Graph<Airports> g) {
                     for (const auto &path: allPaths) {
                         if(path.size()<min)min = path.size();
                     }
+                    cout << "Best Flight: " << endl;
+                    for (const auto &path: allPaths) {
+                        if(path.size()==min){
+                            for (size_t i = 0; i < path.size(); ++i) {
+                                cout << path[i].getName();
+                                if (i < path.size() - 1) {
+                                    cout << " -> ";
+                                }
+                            }
+                            cout << endl;
+                        }
+                    }
                 }
 
 
-                cout << "Best Flight: " << endl;
-                for (const auto &path: allPaths) {
-                    if(path.size()==min){
+
+            }else if(n==3){
+                cout << "Source Latitude:" << endl;
+                cout << ">> ";
+                float slat;
+                cin >> slat;
+                cout << endl;
+                cout << "Source Longitude:" << endl;
+                cout << ">> ";
+                float slong;
+                cin >> slong;
+                cout << endl;
+
+                cout << "Destination Latitude:" << endl;
+                cout << ">> ";
+                float dlat;
+                cin >> dlat;
+                cout << endl;
+                cout << "Destination Longitude:" << endl;
+                cout << ">> ";
+                float dlong;
+                cin >> dlong;
+                cout << endl;
+
+                //create verification in case input is incorrect
+                //if latitude and longitude aren't in the globe?
+
+                float min1 = 1000000000, min2 = 1000000000;//find better solution
+
+                //search source airports
+                vector<pair<Airports,float>> s,d;
+                for(auto at : g.getVertexSet()){
+                    float clong, clat;
+                    clong = at->getInfo().getLongitude();
+                    clat = at->getInfo().getLatitude();
+                    float dis = aux.calculate_distance(slong, slat, clong, clat);
+                    if(dis <= min1){
+                        min1 = dis;
+                        pair<Airports,float> r (at->getInfo(), min1);
+                        s.push_back(r);
+                    }
+                }
+
+                for(auto at : g.getVertexSet()){
+                    float clong, clat;
+                    clong = at->getInfo().getLongitude();
+                    clat = at->getInfo().getLatitude();
+                    float dis = aux.calculate_distance(dlong,dlat,clong,clat);
+                    if(dis <= min2){
+                        min2 = dis;
+                        pair<Airports,float> r (at->getInfo(), min2);
+                        d.push_back(r);
+                    }
+                }
+
+                vector<vector<Airports>> allPaths;
+
+                for(auto at: s){
+                    if(at.second==min1){
+                        for(auto at2: d){
+                            if(at2.second==min2){
+                                //allPaths=aux.best_flight(&g,at.first,at2.first);// problem for different sources and destinations
+                                for (auto at3 : aux.best_flight(&g,at.first,at2.first)){
+                                    allPaths.push_back(at3);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (allPaths.size() == 0) {
+                    cout << "No path found" << endl;
+                } else {
+                    cout << "Best Flight: " << endl;
+                    for (const auto &path: allPaths) {
                         for (size_t i = 0; i < path.size(); ++i) {
                             cout << path[i].getName();
                             if (i < path.size() - 1) {
@@ -197,18 +280,6 @@ bool Menu::request(Graph<Airports> g) {
                         cout << endl;
                     }
                 }
-            }else if(n==3){
-                cout << "Source Airport Latitude:" << endl;
-                cout << ">> ";
-                float source;
-                cin >> source;
-                cout << endl;
-                cout << "Source Airport Longitude:" << endl;
-                cout << ">> ";
-                float dest;
-                cin >> dest;
-                cout << endl;
-
 
             }
             return false;
