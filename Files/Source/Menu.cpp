@@ -165,22 +165,29 @@ bool Menu::request(Graph<Airports> g) {
             }
 
 
-            cout << "Best Flight: " << endl;
-            vector<vector<Airports>> allPaths = aux.findAllMinimumPaths(g,s,d);
+
+
 
             // Print all possible minimum paths
-            cout << "All Possible Minimum Paths:" << endl;
-            for (const auto& path : allPaths) {
-                for (size_t i = 0; i < path.size(); ++i) {
-                    cout << path[i].getName();
-                    if (i < path.size() - 1) {
-                        cout << " -> ";
+            cout << "Best Flight: " << endl;
+            vector<vector<Airports>> allPaths = aux.findAllMinimumPaths(&g,s,d);
+            if(allPaths.size() == 0) {
+                cout << "No path found" << endl;
+            }else{
+                for (const auto& path : allPaths) {
+                    for (size_t i = 0; i < path.size(); ++i) {
+                        cout << path[i].getName();
+                        if (i < path.size() - 1) {
+                            cout << " -> ";
+                        }
                     }
+                    cout << endl;
+
                 }
-                cout << endl;
             }
 
 
+            return false;
         }
 
     }

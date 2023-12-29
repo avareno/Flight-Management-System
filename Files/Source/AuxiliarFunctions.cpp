@@ -19,52 +19,31 @@ bool AuxiliarFunctions::findVertex(Graph<Airports>* g, string code, Airports &re
     return false;
 }
 
-int AuxiliarFunctions::bestflight(Graph<Airports>* g,Airports &source, Airports &dest ) {
-    int count =0;
-    auto s = g->findVertex(source);
-    if (s == NULL)return -1;
-    queue<Vertex<Airports> *> q;
-    for (auto v : g->getVertexSet())
-        v->setVisited(false);
-    q.push(s);
-    s->setVisited(true);
-    while (!q.empty()) {
-        auto v = q.front();
-        q.pop();
-        if(v->getInfo()==dest)break;
-        for (auto & e : v->getAdj()) {
-            auto w = e.getDest();
-            if ( ! w->isVisited() ) {
-                q.push(w);
-                w->setVisited(true);
-            }
-        }
-        count++;
-    }
-    return count;
-}
 
-vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airports>& flightGraph, const Airports& source, const Airports& destination) {
+
+vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airports>* g, const Airports& source, const Airports& destination) {
+
     vector<vector<Airports>> allPaths;
     vector<Airports> currentPath;
 
-    vector<Vertex<Airports>*> vertices = flightGraph.getVertexSet();
-    Vertex<Airports>* sourceVertex = nullptr;
-    Vertex<Airports>* destinationVertex = nullptr;
 
-    for (auto vertex : vertices) {
-        if (vertex->getInfo() == source) {
-            sourceVertex = vertex;
-        }
-        if (vertex->getInfo() == destination) {
-            destinationVertex = vertex;
-        }
-    }
+    vector<Vertex<Airports>*> vertices = g->getVertexSet();
+    Vertex<Airports>* sourceVertex = g->findVertex(source);
+    Vertex<Airports>* destinationVertex = g->findVertex(destination);
 
-    if (sourceVertex == nullptr || destinationVertex == nullptr) {
-        cout << "Source or destination airport not found in the graph." << endl;
-        return allPaths;  // Return an empty vector
-    }
+//    for (auto vertex : vertices) {
+//        if (vertex->getInfo() == source) {
+//            sourceVertex = vertex;
+//        }
+//        if (vertex->getInfo() == destination) {
+//            destinationVertex = vertex;
+//        }
+//    }
+//
+//    if (sourceVertex == nullptr || destinationVertex == nullptr) {
+//        cout << "Source or destination airport not found in the graph." << endl;
+//        return allPaths;  // Return an empty vector
+//    }
 
     queue<pair<Vertex<Airports>*, vector<Airports>>> bfsQueue;
     sourceVertex->setVisited(true);
@@ -83,7 +62,8 @@ vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airp
                 allPaths.push_back(currentPath);
             } else if (currentPath.size() == allPaths[0].size()) {
                 allPaths.push_back(currentPath);
-            }
+            }//test why this verification
+
         }
 
         const vector<Edge<Airports>>& edges = currentVertex->getAdj();
@@ -96,11 +76,6 @@ vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airp
                 bfsQueue.push({neighborVertex, newPath});
             }
         }
-    }
-
-    // Reset visited status for all vertices after BFS
-    for (auto vertex : vertices) {
-        vertex->setVisited(false);
     }
 
     return allPaths;
