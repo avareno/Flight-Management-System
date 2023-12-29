@@ -11,11 +11,17 @@
 
 class AuxiliarFunctions {
 public:
-    bool findVertex(Graph<Airports> *g, string code, Airports &res);
+    bool findVertex(Graph<Airports> *g, string city, Airports &res);
 
 
     vector<vector<Airports>>
-    findAllMinimumPaths(const Graph<Airports>* flightGraph, const Airports &source, const Airports &destination);
+    best_flight(const Graph<Airports>* g, const Airports &source, const Airports &destination);
+
+    bool findVertexCity(Graph<Airports> *g, string city, Airports &res);
+
+    bool is_number(const string &input);
+
+    bool is_upper(const string &text);
 };
 
 

@@ -19,9 +19,18 @@ bool AuxiliarFunctions::findVertex(Graph<Airports>* g, string code, Airports &re
     return false;
 }
 
+bool AuxiliarFunctions::findVertexCity(Graph<Airports>* g, string city, Airports &res) {
+    for (auto v : g->getVertexSet()) {
+        if (v->getInfo().getCity() == city) {
+            res = v->getInfo();
+            return true;
+        }
+    }
+    return false;
+}
 
 
-vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airports>* g, const Airports& source, const Airports& destination) {
+vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g, const Airports& source, const Airports& destination) {
 
     vector<vector<Airports>> allPaths;
     vector<Airports> currentPath;
@@ -30,22 +39,12 @@ vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airp
     vector<Vertex<Airports>*> vertices = g->getVertexSet();
     Vertex<Airports>* sourceVertex = g->findVertex(source);
     Vertex<Airports>* destinationVertex = g->findVertex(destination);
-
-//    for (auto vertex : vertices) {
-//        if (vertex->getInfo() == source) {
-//            sourceVertex = vertex;
-//        }
-//        if (vertex->getInfo() == destination) {
-//            destinationVertex = vertex;
-//        }
-//    }
-//
-//    if (sourceVertex == nullptr || destinationVertex == nullptr) {
-//        cout << "Source or destination airport not found in the graph." << endl;
-//        return allPaths;  // Return an empty vector
-//    }
-
     queue<pair<Vertex<Airports>*, vector<Airports>>> bfsQueue;
+
+    for(auto vertex : vertices) {
+        vertex->setVisited(false);
+    }
+
     sourceVertex->setVisited(true);
     bfsQueue.push({sourceVertex, {source}});
 
@@ -79,4 +78,30 @@ vector<vector<Airports>> AuxiliarFunctions::findAllMinimumPaths(const Graph<Airp
     }
 
     return allPaths;
+}
+
+
+bool AuxiliarFunctions::is_number(const std::string &input) {
+    bool hasDecimal = false;
+
+    for (char c : input) {
+        if (!std::isdigit(c)) {
+            if ((c == '.' || c == ',') && !hasDecimal) {
+                hasDecimal = true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool AuxiliarFunctions::is_upper(const string& text) {
+    for (char c : text) {
+        if (!isupper(c)) {
+            return false;
+        }
+    }
+    return true;
 }
