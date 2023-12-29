@@ -1,9 +1,9 @@
-CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
- /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Menu.cpp \
+CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp \
  /usr/include/stdc-predef.h \
- /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Menu.h \
- /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
- /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Graph.h \
+ /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -14,15 +14,58 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
- /usr/include/c++/13/bits/stringfwd.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
+ /usr/include/c++/13/bits/stl_algobase.h \
+ /usr/include/c++/13/bits/functexcept.h \
+ /usr/include/c++/13/bits/exception_defines.h \
+ /usr/include/c++/13/bits/cpp_type_traits.h \
+ /usr/include/c++/13/ext/type_traits.h \
+ /usr/include/c++/13/ext/numeric_traits.h \
+ /usr/include/c++/13/bits/stl_pair.h /usr/include/c++/13/type_traits \
+ /usr/include/c++/13/bits/move.h /usr/include/c++/13/bits/utility.h \
+ /usr/include/c++/13/bits/stl_iterator_base_types.h \
+ /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/13/bits/concept_check.h \
+ /usr/include/c++/13/debug/assertions.h \
+ /usr/include/c++/13/bits/stl_iterator.h \
+ /usr/include/c++/13/bits/ptr_traits.h /usr/include/c++/13/debug/debug.h \
+ /usr/include/c++/13/bits/predefined_ops.h /usr/include/c++/13/bit \
+ /usr/include/c++/13/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
+ /usr/include/c++/13/bits/new_allocator.h /usr/include/c++/13/new \
+ /usr/include/c++/13/bits/exception.h \
  /usr/include/c++/13/bits/memoryfwd.h \
+ /usr/include/c++/13/bits/stl_construct.h \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/ext/alloc_traits.h \
+ /usr/include/c++/13/bits/alloc_traits.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/initializer_list \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/functional_hash.h \
+ /usr/include/c++/13/bits/hash_bytes.h /usr/include/c++/13/bits/refwrap.h \
+ /usr/include/c++/13/bits/invoke.h \
+ /usr/include/c++/13/bits/stl_function.h \
+ /usr/include/c++/13/backward/binders.h \
+ /usr/include/c++/13/bits/range_access.h \
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/queue \
+ /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
+ /usr/include/c++/13/bits/deque.tcc /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/stl_queue.h \
+ /usr/include/c++/13/bits/uses_allocator.h /usr/include/c++/13/stack \
+ /usr/include/c++/13/bits/stl_stack.h /usr/include/c++/13/list \
+ /usr/include/c++/13/bits/stl_list.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/list.tcc /usr/include/c++/13/string \
+ /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
  /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
@@ -32,14 +75,6 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/13/type_traits /usr/include/c++/13/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
- /usr/include/c++/13/bits/new_allocator.h /usr/include/c++/13/new \
- /usr/include/c++/13/bits/exception.h \
- /usr/include/c++/13/bits/functexcept.h \
- /usr/include/c++/13/bits/exception_defines.h \
- /usr/include/c++/13/bits/move.h \
- /usr/include/c++/13/bits/cpp_type_traits.h \
  /usr/include/c++/13/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
  /usr/include/c++/13/clocale /usr/include/locale.h \
@@ -52,27 +87,7 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/endianness.h \
  /usr/include/c++/13/bits/ostream_insert.h \
  /usr/include/c++/13/bits/cxxabi_forced.h \
- /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/13/bits/concept_check.h \
- /usr/include/c++/13/debug/assertions.h \
- /usr/include/c++/13/bits/stl_iterator_base_types.h \
- /usr/include/c++/13/bits/stl_iterator.h \
- /usr/include/c++/13/ext/type_traits.h \
- /usr/include/c++/13/bits/ptr_traits.h \
- /usr/include/c++/13/bits/stl_function.h \
- /usr/include/c++/13/backward/binders.h \
- /usr/include/c++/13/ext/numeric_traits.h \
- /usr/include/c++/13/bits/stl_algobase.h \
- /usr/include/c++/13/bits/stl_pair.h /usr/include/c++/13/bits/utility.h \
- /usr/include/c++/13/debug/debug.h \
- /usr/include/c++/13/bits/predefined_ops.h /usr/include/c++/13/bit \
- /usr/include/c++/13/bits/refwrap.h /usr/include/c++/13/bits/invoke.h \
- /usr/include/c++/13/bits/range_access.h \
- /usr/include/c++/13/initializer_list \
  /usr/include/c++/13/bits/basic_string.h \
- /usr/include/c++/13/ext/alloc_traits.h \
- /usr/include/c++/13/bits/alloc_traits.h \
- /usr/include/c++/13/bits/stl_construct.h \
  /usr/include/c++/13/ext/string_conversions.h /usr/include/c++/13/cstdlib \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -109,25 +124,8 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
- /usr/include/c++/13/bits/functional_hash.h \
- /usr/include/c++/13/bits/hash_bytes.h \
  /usr/include/c++/13/bits/basic_string.tcc \
- /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Graph.h \
- /usr/include/c++/13/cstddef /usr/include/c++/13/vector \
- /usr/include/c++/13/bits/stl_uninitialized.h \
- /usr/include/c++/13/bits/stl_vector.h \
- /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/queue \
- /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
- /usr/include/c++/13/bits/deque.tcc /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/stl_queue.h \
- /usr/include/c++/13/bits/uses_allocator.h /usr/include/c++/13/stack \
- /usr/include/c++/13/bits/stl_stack.h /usr/include/c++/13/list \
- /usr/include/c++/13/bits/stl_list.h \
- /usr/include/c++/13/bits/allocated_ptr.h \
- /usr/include/c++/13/ext/aligned_buffer.h \
- /usr/include/c++/13/bits/list.tcc \
- /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/exception \
@@ -165,8 +163,4 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/algorithm \
- /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h
+ /usr/include/c++/13/bits/istream.tcc

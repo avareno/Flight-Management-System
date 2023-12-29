@@ -19,4 +19,6 @@ add_executable(Projeto_AED
         Files/Source/Reader.cpp
         Files/Source/Menu.cpp
         main.cpp
+        Files/Source/AuxiliarFunctions.cpp
+        Files/Source/AuxiliarFunctions.cpp
 )

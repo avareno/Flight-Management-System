@@ -159,17 +159,25 @@ bool Menu::request(Graph<Airports> g) {
             cout << endl;
 
             Airports s,d;
-            if(!findVertex(&g,source,s) || !findVertex(&g,dest,d)) {
+            if(!aux.findVertex(&g,source,s) || !aux.findVertex(&g,dest,d)) {
                 cout << "Invalid Airport code" << endl;
                 return false;
             }
 
 
             cout << "Best Flight: " << endl;
-            for(auto at : bestFlight(&g,s,d)) {
-                cout <<at.getCode() << " -> ";
-                cout << endl;
+            vector<vector<Airports>> allPaths = aux.findAllMinimumPaths(g,s,d);
 
+            // Print all possible minimum paths
+            cout << "All Possible Minimum Paths:" << endl;
+            for (const auto& path : allPaths) {
+                for (size_t i = 0; i < path.size(); ++i) {
+                    cout << path[i].getName();
+                    if (i < path.size() - 1) {
+                        cout << " -> ";
+                    }
+                }
+                cout << endl;
             }
 
 
@@ -183,38 +191,3 @@ bool Menu::request(Graph<Airports> g) {
 
 }
 
-bool Menu::findVertex(Graph<Airports>* g, string code, Airports &res) {
-    for (auto v : g->getVertexSet()) {
-        if (v->getInfo().getCode() == code) {
-            res = v->getInfo();
-            return true;
-        }
-    }
-    return false;
-}
-
-vector<Airports> Menu::bestFlight(Graph<Airports>* g,Airports &source, Airports &dest ) {
-    vector<Airports> res;
-    auto s = g->findVertex(source);
-    if (s == NULL)
-        return res;
-    queue<Vertex<Airports> *> q;
-    for (auto v : g->getVertexSet())
-        v->setVisited(false);
-    q.push(s);
-    s->setVisited(true);
-    while (!q.empty()) {
-        auto v = q.front();
-        q.pop();
-        res.push_back(v->getInfo());
-        if(v->getInfo()==dest)break;
-        for (auto & e : v->getAdj()) {
-            auto w = e.getDest();
-            if ( ! w->isVisited() ) {
-                q.push(w);
-                w->setVisited(true);
-            }
-        }
-    }
-    return res;
-}

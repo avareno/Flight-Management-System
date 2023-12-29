@@ -7,6 +7,7 @@
 
 
 #include "Airports.h"
+#include "AuxiliarFunctions.hpp"
 
 class Menu {
 public:
@@ -16,10 +17,7 @@ public:
     bool request(Graph<Airports> g);
 private:
     int option;
-
-    bool findVertex(Graph<Airports> *g, string code, Airports &res);
-
-    vector<Airports> bestFlight(Graph<Airports> *g, Airports &source, Airports &dest);
+    AuxiliarFunctions aux;
 };
 
 

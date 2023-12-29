@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o.d"
   "CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o"
   "CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o.d"
+  "CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o"
+  "CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o.d"
   "CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o"
   "CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o.d"
   "CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o"

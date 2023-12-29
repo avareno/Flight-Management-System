@@ -177,6 +177,30 @@ Files/Source/Airports.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto_AED.dir/build.make CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.s
 .PHONY : Files/Source/Airports.cpp.s
 
+Files/Source/AuxiliarFunctions.o: Files/Source/AuxiliarFunctions.cpp.o
+.PHONY : Files/Source/AuxiliarFunctions.o
+
+# target to build an object file
+Files/Source/AuxiliarFunctions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto_AED.dir/build.make CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o
+.PHONY : Files/Source/AuxiliarFunctions.cpp.o
+
+Files/Source/AuxiliarFunctions.i: Files/Source/AuxiliarFunctions.cpp.i
+.PHONY : Files/Source/AuxiliarFunctions.i
+
+# target to preprocess a source file
+Files/Source/AuxiliarFunctions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto_AED.dir/build.make CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.i
+.PHONY : Files/Source/AuxiliarFunctions.cpp.i
+
+Files/Source/AuxiliarFunctions.s: Files/Source/AuxiliarFunctions.cpp.s
+.PHONY : Files/Source/AuxiliarFunctions.s
+
+# target to generate assembly for a file
+Files/Source/AuxiliarFunctions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto_AED.dir/build.make CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.s
+.PHONY : Files/Source/AuxiliarFunctions.cpp.s
+
 Files/Source/Display.o: Files/Source/Display.cpp.o
 .PHONY : Files/Source/Display.o
 
@@ -312,6 +336,9 @@ help:
 	@echo "... Files/Source/Airports.o"
 	@echo "... Files/Source/Airports.i"
 	@echo "... Files/Source/Airports.s"
+	@echo "... Files/Source/AuxiliarFunctions.o"
+	@echo "... Files/Source/AuxiliarFunctions.i"
+	@echo "... Files/Source/AuxiliarFunctions.s"
 	@echo "... Files/Source/Display.o"
 	@echo "... Files/Source/Display.i"
 	@echo "... Files/Source/Display.s"

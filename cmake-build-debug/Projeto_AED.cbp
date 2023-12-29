@@ -108,6 +108,9 @@
 		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airports.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
+		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp">
+			<Option target="Projeto_AED"/>
+		</Unit>
 		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Display.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>

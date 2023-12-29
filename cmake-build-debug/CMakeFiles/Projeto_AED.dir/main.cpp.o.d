@@ -172,4 +172,5 @@ CMakeFiles/Projeto_AED.dir/main.cpp.o: \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/list.tcc \
  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
- /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Menu.h
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Menu.h \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp
