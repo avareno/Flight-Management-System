@@ -8,125 +8,121 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug"/>
+				<Option working_dir="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Projeto_AED">
-				<Option output="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Projeto_AED" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug"/>
+				<Option output="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Projeto_AED" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header"/>
-					<Add directory="/usr/include/c++/13"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
-					<Add directory="/usr/include/c++/13/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projeto_AED"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projeto_AED"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Projeto_AED/fast">
-				<Option output="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Projeto_AED" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug"/>
+				<Option output="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Projeto_AED" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header"/>
-					<Add directory="/usr/include/c++/13"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
-					<Add directory="/usr/include/c++/13/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projeto_AED/fast"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projeto_AED/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug"/>
+				<Option working_dir="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug"/>
+				<Option working_dir="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airlines.h">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header/Airlines.h">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header/Airports.h">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Display.h">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header/Display.h">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header/Flights.h">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Menu.h">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header/Menu.h">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Reader.h">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Header/Reader.h">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airlines.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/Airlines.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airports.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/Airports.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Display.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/Display.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Flights.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/Flights.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Menu.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/Menu.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Reader.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/Files/Source/Reader.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/main.cpp">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/main.cpp">
 			<Option target="Projeto_AED"/>
 		</Unit>
-		<Unit filename="/home/avareno/CLionProjects/AED/Projeto_AED_2/CMakeLists.txt">
+		<Unit filename="/Users/gabrielbraga/Desktop/MERDA/Projeto_AED_2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
