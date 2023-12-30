@@ -249,21 +249,47 @@ bool Menu::request(Graph<Airports> g) {
                     return false;
                 }
 
+                int res;
+
+                cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                cin >> res;
                 vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
-                if (allPaths.size() == 0) {
-                    cout << "No path found" << endl;
-                } else {
-                    cout << "Best Flight: " << endl;
-                    for (const auto &path: allPaths) {
-                        for (size_t i = 0; i < path.size(); ++i) {
-                            cout << path[i].getName();
-                            if (i < path.size() - 1) {
-                                cout << " -> ";
+                if(res==1){
+                    if (allPaths.size() == 0) {
+                        cout << "No path found" << endl;
+                    } else {
+                        cout << "Best Flight: " << endl;
+                        for (auto path: allPaths) {
+                            for (size_t i = 0; i < path.size(); ++i) {
+                                cout << path[i].getName();
+                                if (i < path.size() - 1) {
+                                    cout << " -> ";
+                                }
+                            }
+                            cout << endl;
+                        }
+                    }
+                }else if(res==2){
+
+                    if (allPaths.size() == 0) {
+                        cout << "No path found" << endl;
+                    }else{
+                        vector<Edge<Airports>> res;
+                        cout << "Best Flight: " << endl;
+                        for(auto path: allPaths){
+                            Airports beg = path[0];
+                            for(size_t i = 0; i < path.size()-1; ++i){
+                                g.findVertex(path[i])->getEdge(g.findVertex(path[i+1]), res);
+                            }
+                            cout << beg.getName();
+                            for(auto at: res){
+                                cout << " -> " << at.getDest()->getInfo().getName() << " with " << at.getAlCode() << endl;
                             }
                         }
-                        cout << endl;
                     }
                 }
+                return false;
+
             }else if(n==2){
                 cout << "Source Airport City:" << endl;
                 cout << ">> ";
@@ -290,19 +316,41 @@ bool Menu::request(Graph<Airports> g) {
                 if (allPaths.size() == 0) {
                     cout << "No path found" << endl;
                 } else {
-                    for (const auto &path: allPaths) {
-                        if(path.size()<min)min = path.size();
+                    int res;
+                    cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                    cin >> res;
+                    for (auto path: allPaths) {
+                        if (path.size() < min)min = path.size();
                     }
-                    cout << "Best Flight: " << endl;
-                    for (const auto &path: allPaths) {
-                        if(path.size()==min){
-                            for (size_t i = 0; i < path.size(); ++i) {
-                                cout << path[i].getName();
-                                if (i < path.size() - 1) {
-                                    cout << " -> ";
+                    if(res==1) {
+                        cout << "Best Flight: " << endl;
+                        for (auto path: allPaths) {
+                            if (path.size() == min) {
+                                for (size_t i = 0; i < path.size(); ++i) {
+                                    cout << path[i].getName();
+                                    if (i < path.size() - 1) {
+                                        cout << " -> ";
+                                    }
+                                }
+                                cout << endl;
+                            }
+                        }
+                    }else if(res==2){
+                        vector<Edge<Airports>> res;
+                        cout << "Best Flight: " << endl;
+                        for(auto path: allPaths){
+
+                            if(path.size()==min) {
+                                Airports beg = path[0];
+                                for (size_t i = 0; i < path.size() - 1; ++i) {
+                                    g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), res);
+                                }
+                                cout << beg.getName();
+                                for (auto at: res) {
+                                    cout << " -> " << at.getDest()->getInfo().getName() << " with "
+                                         << at.getAlCode() << endl;
                                 }
                             }
-                            cout << endl;
                         }
                     }
                 }
@@ -380,26 +428,54 @@ bool Menu::request(Graph<Airports> g) {
                 if (allPaths.size() == 0) {
                     cout << "No path found" << endl;
                 } else {
-                    cout << "Best Flight: " << endl;
-                    for (const auto &path: allPaths) {
-                        for (size_t i = 0; i < path.size(); ++i) {
-                            cout << path[i].getName();
-                            if (i < path.size() - 1) {
-                                cout << " -> ";
+                    int res;
+                    cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                    cin >> res;
+                    if(res==1) {
+                        cout << "Best Flight: " << endl;
+                        for (auto path: allPaths) {
+                            for (size_t i = 0; i < path.size(); ++i) {
+                                cout << path[i].getName();
+                                if (i < path.size() - 1) {
+                                    cout << " -> ";
+                                }
+                            }
+                            cout << endl;
+                        }
+                    }else if(res==2){
+                        vector<Edge<Airports>> res;
+                        cout << "Best Flight: " << endl;
+                        for(auto path: allPaths){
+                            Airports beg = path[0];
+                            for(size_t i = 0; i < path.size()-1; ++i){
+                                g.findVertex(path[i])->getEdge(g.findVertex(path[i+1]), res);
+                            }
+                            cout << beg.getName();
+                            for(auto at: res){
+                                cout << " -> " << at.getDest()->getInfo().getName() << " with " << at.getAlCode() << endl;
                             }
                         }
-                        cout << endl;
                     }
                 }
 
             }
 
-        }else{
+        }else if (n==2){
             cout << "   >>Filter:" << endl;
-            cout << "   >>Through Number of Airlines" << endl;
-            cout << "   >>Through Name of Airlines" << endl;
-            cout << "   >>Through Code of Airlines" << endl;
+            cout << "   >>1.Through Number of Airlines" << endl;
+            cout << "   >>2.Through Name of Airlines" << endl;
+            cout << "   >>3.Through Code of Airlines" << endl;
+            cin >> n;
 
+            if(n==1){
+
+            }else if(n==2){
+
+            }else if (n==3){
+
+            }else{
+                cout << "Invalid Input" << endl;
+            }
 
         }
 

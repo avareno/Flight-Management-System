@@ -126,7 +126,9 @@ CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
  /usr/include/c++/13/math.h /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \

@@ -8,6 +8,7 @@
 
 #include "Graph.h"
 #include "Airports.h"
+#include "Flights.h"
 
 class AuxiliarFunctions {
 public:
@@ -24,6 +25,12 @@ public:
     bool is_upper(const string &text);
 
     float calculate_distance(float slong, float slat, float dlong, float dlat);
+
+    vector<vector<Airports>>
+    best_flight_no_airlines(const Graph<Airports> *g, const Airports &source, const Airports &destination,
+                            int nairlines);
+
+    vector<Flights> Airports_to_flights(vector<Airports>);
 };
 
 

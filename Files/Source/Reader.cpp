@@ -49,7 +49,7 @@ void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos 
                     airport->setIndegree(airport->getIndegree()+1);
                 }
             }
-            g->addEdge(s, t, New.Haversine_d(lat1, lon1, lat2, lon2), AL_code);
+            g->addEdge(s, t, New.Haversine_d(lat1, lon1, lat2, lon2), AL_code);// change fromharvesine to func in auxiliar
         }
     }
 }

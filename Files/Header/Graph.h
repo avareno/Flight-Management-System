@@ -61,6 +61,8 @@ public:
     void setLow(int low);
 
     friend class Graph<T>;
+
+    void getEdge(const Vertex<T>* dest, vector<Edge<T>> &res);
 };
 
 template <class T>
@@ -68,12 +70,16 @@ class Edge {
     Vertex<T> * dest;      // destination vertex
     string AL_code;
     double weight;         // edge weight
+
+
 public:
-    Edge(Vertex<T> *d, double w);
+    Edge(Vertex<T> *d, double w, string basicString);
     Vertex<T> *getDest() const;
     void setDest(Vertex<T> *dest);
     double getWeight() const;
     void setWeight(double weight);
+    string getAlCode() const;
+    void setAlCode(const string &alCode);
     friend class Graph<T>;
     friend class Vertex<T>;
 };
@@ -108,8 +114,7 @@ template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
 
 template <class T>
-Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
-
+Edge<T>::Edge(Vertex<T> *d, double w, string basicString): dest(d), weight(w), AL_code(basicString) {}
 
 template <class T>
 int Graph<T>::getNumVertex() const {
@@ -160,6 +165,17 @@ template<class T>
 void Edge<T>::setWeight(double weight) {
     Edge::weight = weight;
 }
+
+template<class T>
+string Edge<T>::getAlCode() const {
+    return AL_code;
+}
+
+template<class T>
+void Edge<T>::setAlCode(const std::string &alCode) {
+    Edge::AL_code = alCode;
+}
+
 
 /*
  * Auxiliary function to find a vertex with a given content.
@@ -232,6 +248,15 @@ void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
     Vertex::adj = adj;
 }
 
+template<class T>
+void Vertex<T>::getEdge(const Vertex<T> *dest, vector<Edge<T>> &res){
+    for(Edge<T> at: this->getAdj()){
+        if(at.getDest()->getInfo()==dest->getInfo()){
+            res.push_back(at);
+            break;
+        }
+    }
+}
 
 /*
  *  Adds a vertex with a given content or info (in) to a graph (this).
@@ -268,7 +293,8 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w, string AL_code) 
  */
 template <class T>
 void Vertex<T>::addEdge(Vertex<T> *d, double w, string basicString) {
-    adj.push_back(Edge<T>(d, w));
+    adj.push_back(Edge<T>(d, w,basicString));
+
 }
 
 

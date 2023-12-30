@@ -557,7 +557,9 @@ CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: /home/avareno/C
   /usr/include/c++/13/bits/charconv.h \
   /usr/include/c++/13/bits/basic_string.tcc \
   /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
   /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
   /usr/include/c++/13/math.h \
   /usr/include/c++/13/cmath \
   /usr/include/math.h \
@@ -1147,7 +1149,9 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: /home/avareno/CLionProjects/
   /usr/include/c++/13/ext/aligned_buffer.h \
   /usr/include/c++/13/bits/list.tcc \
   /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
   /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/ios \
@@ -1625,7 +1629,8 @@ CMakeFiles/Projeto_AED.dir/main.cpp.o: /home/avareno/CLionProjects/AED/Projeto_A
   /usr/include/c++/13/bits/list.tcc \
   /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
   /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Menu.h \
-  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h
 
 
 /usr/include/c++/13/bits/stl_tempbuf.h:

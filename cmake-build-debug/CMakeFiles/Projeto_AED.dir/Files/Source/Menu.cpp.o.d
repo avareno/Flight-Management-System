@@ -128,7 +128,9 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/list.tcc \
  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/AuxiliarFunctions.hpp \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+ /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/exception \
  /usr/include/c++/13/bits/exception_ptr.h \
