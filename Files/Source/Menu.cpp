@@ -222,7 +222,7 @@ bool Menu::request(Graph<Airports> g) {
         int n;
         cout << "Search:" << endl;
         cout << ">>1. Best Flights" << endl;
-        cout << ">>2. other options" << endl;
+        cout << ">>2. Best FLights with filters" << endl;
         cin >> n;
 
         if(n==1) {
@@ -369,7 +369,6 @@ bool Menu::request(Graph<Airports> g) {
                     if(at.second==min1){
                         for(auto at2: d){
                             if(at2.second==min2){
-                                //allPaths=aux.best_flight(&g,at.first,at2.first);// problem for different sources and destinations
                                 for (auto at3 : aux.best_flight(&g,at.first,at2.first)){
                                     allPaths.push_back(at3);
                                 }
@@ -394,9 +393,18 @@ bool Menu::request(Graph<Airports> g) {
                 }
 
             }
-            return false;
+
+        }else{
+            cout << "   >>Filter:" << endl;
+            cout << "   >>Through Number of Airlines" << endl;
+            cout << "   >>Through Name of Airlines" << endl;
+            cout << "   >>Through Code of Airlines" << endl;
+
+
         }
 
+
+        return false;
     }
 
     // Exit Option
