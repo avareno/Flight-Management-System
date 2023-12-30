@@ -8,6 +8,7 @@
 #include "Airlines.h"
 #include <math.h>
 #include <queue>
+#include <set>
 
 using namespace std;
 
@@ -90,62 +91,8 @@ vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g
     return allPaths;
 }
 
-vector<vector<Airports>> AuxiliarFunctions::best_flight_no_airlines(const Graph<Airports>* g, const Airports& source, const Airports& destination, int nairlines) {
-
-    vector<vector<Airports>> allPaths;
-    vector<Airports> currentPath;
 
 
-    vector<Vertex<Airports>*> vertices = g->getVertexSet();
-    Vertex<Airports>* sourceVertex = g->findVertex(source);
-    Vertex<Airports>* destinationVertex = g->findVertex(destination);
-    queue<pair<Vertex<Airports>*, vector<Airports>>> bfsQueue;
-
-    for(auto vertex : vertices) {
-        vertex->setVisited(false);
-    }
-
-    sourceVertex->setVisited(true);
-    bfsQueue.push({sourceVertex, {source}});
-
-    while (!bfsQueue.empty()) {
-        auto currentPair = bfsQueue.front();
-        auto currentVertex = currentPair.first;
-        auto currentPath = currentPair.second;
-        bfsQueue.pop();
-
-        if (currentVertex == destinationVertex) {
-            // Found a path to the destination
-            if (allPaths.empty() || currentPath.size() < allPaths[0].size()) {
-                allPaths.clear();
-                allPaths.push_back(currentPath);
-            } else if (currentPath.size() == allPaths[0].size()) {
-                allPaths.push_back(currentPath);
-            }//test why this verification
-
-        }
-
-        const vector<Edge<Airports>>& edges = currentVertex->getAdj();
-        for (const Edge<Airports>& edge : edges) {
-            auto neighborVertex = edge.getDest();
-            if (!neighborVertex->isVisited()) {
-                neighborVertex->setVisited(true);
-                vector<Airports> newPath = currentPath;
-                newPath.push_back(neighborVertex->getInfo());
-                bfsQueue.push({neighborVertex, newPath});
-            }
-        }
-
-
-    }
-
-
-    return allPaths;
-}
-
-vector<Flights> AuxiliarFunctions::Airports_to_flights(vector<Airports>){
-
-}
 
 bool AuxiliarFunctions::is_number(const std::string &input) {
     bool hasDecimal = false;
@@ -179,4 +126,18 @@ float AuxiliarFunctions::calculate_distance(float slong, float slat, float dlong
     float smem = cos(slat) * cos(dlat) * pow(sin((dlong - slong) / 2), 2);
     res = 2 * atan2(sqrt(fmem + smem), sqrt(1 - fmem - smem));
     return res;
+}
+
+int AuxiliarFunctions::calculate_number_of_airlines(vector<Airports> res, Graph<Airports> *g) {
+    vector<Edge<Airports>> edges;
+    for(size_t i = 0; i < res.size()-1; ++i){
+        g->findVertex(res[i])->getEdge(g->findVertex(res[i+1]), edges);
+    }
+
+
+    set<string> uniqueAlCodes;
+    for (auto edge : edges) {
+        uniqueAlCodes.insert(edge.getAlCode());
+    }
+    return uniqueAlCodes.size();
 }
