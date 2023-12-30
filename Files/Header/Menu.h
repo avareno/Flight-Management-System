@@ -12,6 +12,8 @@
 class Menu {
 public:
     Menu();
+    bool is_number(const std::string &input);
+    bool is_upper(const std::string &input);
     bool request(Graph<Airports> g);
 private:
     AuxiliarFunctions aux;

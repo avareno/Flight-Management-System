@@ -8,7 +8,7 @@ Flights::Flights(const string& source, const string& target, const string& AL_co
         :  source_(source), target_(target), AL_code_(AL_code) {}
 
 void Flights::print() const {
-    cout << "Source: " << source_ << " | " << "Target: " << target_ <<  " | " << "Airline Code: " << AL_code_;
+    cout << "Source: " << source_ << " | " << "Target: " << target_ <<  " | " << "Airline Code: " << AL_code_ << endl;
 }
 string Flights::getSource() const {
     return source_;

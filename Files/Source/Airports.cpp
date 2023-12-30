@@ -7,7 +7,7 @@ Airports::Airports(const string &code, const string &name, const string &city, c
         :  code_(code), name_(name), city_(city), country_(country), latitude_(latitude), longitude_(longitude) {}
 Airports::Airports() {};
 void Airports::print() const {
-    cout << "Code: " << code_ << " | " << "City: " << city_ <<  " | " << "Country: " << country_ <<  " | " << "Latitude: " << latitude_ <<  " | " << "Longitude: " << longitude_;
+    cout << "Code: " << code_ << " | " << "City: " << city_ <<  " | " << "Country: " << country_ <<  " | " << "Latitude: " << latitude_ <<  " | " << "Longitude: " << longitude_ << endl;
 }
 string Airports::getCode() const {
     return code_;

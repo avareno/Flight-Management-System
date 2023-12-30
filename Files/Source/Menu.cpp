@@ -4,6 +4,7 @@
 
 #include "Menu.h"
 #include "Airports.h"
+#include "Flights.h"
 #include <cstdlib>
 #include <iostream>
 
@@ -20,90 +21,201 @@ Menu::Menu() {
     cout << "6. Exit" << endl;
 }
 
+bool Menu::is_number(const std::string &input) {
+    bool hasDecimal = false;
+
+    for (char c : input) {
+        if (!std::isdigit(c)) {
+            if ((c == '.' || c == ',') && !hasDecimal) {
+                hasDecimal = true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool Menu::is_upper(const std::string &input) {
+    for (char c : input) {
+        if (!std::isupper(c)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Menu::request(Graph<Airports> g) {
-    string input;
-    cout << ">> ";
-    cin >> input;
-    cout << '\n';
-    if(input.length() != 1 || !isdigit(input[0])) {
-        cout << "Invalid input key" << endl;
-        return false;
-    }
-
-    if (input == "1") {
-        string AirCode, AirName, AirCity, AirCountry, Latitude, Longitude;
-
-        cout << "Airport Code:" << endl;
-        cout << ">> " ;
-        cin >> AirCode;
-        cout << endl;
-
-        if(AirCode.length() != 3 || aux.is_number(AirCode) || !aux.is_upper(AirCode)) {
-            cout << "Invalid input key" << endl;
-            system("CLS");
-            return false;
-        }
-
-        cout << "Airport Name:" << endl;
-        cout << ">> " ;
-        getline(cin >> ws,AirName);
-        cout << endl;
-
-        if(aux.is_number(AirName)) {
+        string input;
+        cout << ">> ";
+        cin >> input;
+        cout << '\n';
+        if(input.length() != 1 || !isdigit(input[0])) {
             cout << "Invalid input key" << endl;
             return false;
         }
 
-        cout << "Airport City:" << endl;
-        cout << ">> " ;
-        getline(cin >> ws,AirCity);
-        cout << endl;
+        // Add Airport
+        if (input == "1") {
+            string AirCode, AirName, AirCity, AirCountry, Latitude, Longitude;
 
-        if(aux.is_number(AirCity)) {
-            cout << "Invalid input key" << endl;
+            cout << "Airport Code:" << endl;
+            cout << ">> " ;
+            cin >> AirCode;
+            cout << endl;
+
+            if(AirCode.length() != 3 || is_number(AirCode) || !is_upper(AirCode)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Airport Name:" << endl;
+            cout << ">> " ;
+            getline(cin >> ws,AirName);
+            cout << endl;
+
+            if(is_number(AirName)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Airport City:" << endl;
+            cout << ">> " ;
+            getline(cin >> ws,AirCity);
+            cout << endl;
+
+            if(is_number(AirCity)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Airport Country:" << endl;
+            cout << ">> " ;
+            getline(cin >> ws,AirCountry);
+            cout << endl;
+
+
+            if(is_number(AirCountry)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Airport Latitude:" << endl;
+            cout << ">> " ;
+            cin >> Latitude;
+            cout << endl;
+
+            if(!is_number(Latitude) || stod(Latitude)>90 || stod(Latitude)<-90) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Airport Longitude:" << endl;
+            cout << ">> " ;
+            cin >> Longitude;
+            cout << endl;
+
+            if(!is_number(Longitude) || stod(Longitude)>180 || stod(Longitude)<-180) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            /*
+            Airports New = Airports(AirCode, AirName, AirCity, AirCountry, stod(Latitude), stod(Longitude));
+            g.addVertex(New);
+            */
+
+            cout << "Airport " << AirName << " added." << endl;
+
             return false;
         }
 
-        cout << "Airport Country:" << endl;
-        cout << ">> " ;
-        getline(cin >> ws,AirCountry);
-        cout << endl;
+        // Add Flight
+        if (input == "2") {
+            string source, target, AL_code;
 
+            cout << "Source Airport Code:" << endl;
+            cout << ">> " ;
+            getline(cin >> ws,source);
+            cout << endl;
 
-        if(aux.is_number(AirCountry)) {
-            cout << "Invalid input key" << endl;
+            if(is_number(source)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Target Airport Code:" << endl;
+            cout << ">> " ;
+            getline(cin >> ws,target);
+            cout << endl;
+
+            if(is_number(target)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            cout << "Airline Code:" << endl;
+            cout << ">> " ;
+            getline(cin >> ws,AL_code);
+            cout << endl;
+
+            if(is_number(AL_code)) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            Flights New = Flights(source, target, AL_code);
+            double lat1, lon1, lat2, lon2;
+            Airports s = Airports("a", "a", "a", "a", 0.0, 0.0);
+            Airports t = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+            for (auto &airport : g.getVertexSet()) {
+                if (airport->getInfo().getCode() == source) {
+                    lat1 = airport->getInfo().getLatitude();
+                    lon1 = airport->getInfo().getLongitude();
+                    s = airport->getInfo();
+                    airport->setOutdegree(airport->getOutdegree()+1);
+                }
+                else if (airport->getInfo().getCode() == target) {
+                    lat2 = airport->getInfo().getLatitude();
+                    lon2 = airport->getInfo().getLongitude();
+                    t = airport->getInfo();
+                    airport->setIndegree(airport->getIndegree()+1);
+                }
+            }
+            /*
+            if(g.addEdge(s, t, New.Haversine_d(lat1, lon1, lat2, lon2), AL_code))
+                cout << "Flight from " << s.getName() << " to " << t.getName() << " added." << endl;
+
+            else cout << "Impossible to add this flight";
+            */
             return false;
         }
 
-        cout << "Airport Latitude:" << endl;
-        cout << ">> " ;
-        cin >> Latitude;
-        cout << endl;
-
-        if(!aux.is_number(Latitude) || stod(Latitude)>90 || stod(Latitude)<-90) {
-            cout << "Invalid input key" << endl;
+        // Display Airports and total number of Airports
+        if (input == "3") {
+            int n_airports = 0;
+            for (auto airport : g.getVertexSet()){
+                airport->getInfo().print();
+                n_airports++;
+            }
+            cout << "\nGlobal number of Airports: " << n_airports << endl;
             return false;
         }
 
-        cout << "Airport Longitude:" << endl;
-        cout << ">> " ;
-        cin >> Longitude;
-        cout << endl;
-
-        if(!aux.is_number(Longitude) || stod(Longitude)>180 || stod(Longitude)<-180) {
-            cout << "Invalid input key" << endl;
+        // Display Flights and total number of Airports
+        if (input == "4") {
+            int n_flights = 0;
+            for (auto airport : g.getVertexSet()){
+                for (auto flights : airport->getAdj()){
+                    cout << "Source: " << airport->getInfo().getName() << " | " << "Destiny: " << flights.getDest()->getInfo().getName() << endl;
+                    n_flights++;
+                }
+            }
+            cout << "\nGlobal number of Flights: " << n_flights << endl;
             return false;
         }
-
-        /*
-        Airports New = Airports(AirCode, AirName, AirCity, AirCountry, stod(Latitude), stod(Longitude));
-        g.addVertex(New);
-         */
-
-        cout << "Airport " << AirName << " added." << endl;
-
-        return false;
-    }
 
     //Search Option
     if(input == "5") {
