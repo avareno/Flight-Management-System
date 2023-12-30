@@ -775,7 +775,10 @@ CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o: /home/avareno/CLionProjec
   /usr/include/c++/13/bits/stl_list.h \
   /usr/include/c++/13/bits/allocated_ptr.h \
   /usr/include/c++/13/ext/aligned_buffer.h \
-  /usr/include/c++/13/bits/list.tcc
+  /usr/include/c++/13/bits/list.tcc \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airports.h \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Airlines.h \
+  /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Header/Flights.h
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Flights.cpp \
   /usr/include/stdc-predef.h \
