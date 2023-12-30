@@ -18,7 +18,7 @@ public:
     Reader();
     bool fileExists(const string& filename);
     void read_flights(Graph<Airports> *g);
-    vector<Airlines> read_airlines(Graph<Airports> *g);
+    vector<Airlines> read_airlines();
     void read_airports(Graph<Airports> *g);
     int Size(vector <string> something);
 private:

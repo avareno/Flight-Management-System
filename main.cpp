@@ -21,12 +21,12 @@ bool checkIfEmpty(const string& filename){ ///< Checks if the file is empty. \n 
 int main() { ///< Displays the menu of choices for the user.
     Reader r;
     Graph<Airports> g;
-    r.read_airlines(&g);
+    vector<Airlines> als = r.read_airlines();
     r.read_airports(&g);
     r.read_flights(&g);
     while (true) {
     Menu m = Menu();
-    if (m.request(g)) break;
+    if (m.request(g,&als)) break;
     }
     return 0;
 

@@ -54,7 +54,7 @@ void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos 
     }
 }
 
-vector<Airlines> Reader::read_airlines(Graph<Airports> *g) {
+vector<Airlines> Reader::read_airlines() {
     Reader read;
     vector<Airlines> All_Airlines;
     if (read.fileExists("airlines.csv")) {

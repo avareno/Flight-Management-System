@@ -5,6 +5,7 @@
 #include "AuxiliarFunctions.hpp"
 #include "Airports.h"
 #include "Flights.h"
+#include "Airlines.h"
 #include <math.h>
 #include <queue>
 
@@ -28,6 +29,13 @@ bool AuxiliarFunctions::findVertexCity(Graph<Airports>* g, string city, Airports
         }
     }
     return false;
+}
+
+Airlines AuxiliarFunctions::findAirlineCode(vector<Airlines>* v, string alcode) {
+    for (Airlines al : *v) {
+        if (al.getCode() == alcode) {return al;}
+    }
+    return Airlines("","","","");
 }
 
 

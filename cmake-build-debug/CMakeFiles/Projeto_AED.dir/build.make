@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/avareno/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /home/avareno/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/avareno/CLionProjects/AED/Projeto_AED_2
+CMAKE_SOURCE_DIR = "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug
+CMAKE_BINARY_DIR = "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Projeto_AED.dir/depend.make
@@ -70,116 +70,116 @@ include CMakeFiles/Projeto_AED.dir/progress.make
 include CMakeFiles/Projeto_AED.dir/flags.make
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airlines.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/Airlines.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airlines.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Airlines.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airlines.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Airlines.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airlines.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Airlines.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.s
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airports.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/Airports.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airports.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Airports.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airports.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Airports.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Airports.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Airports.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.s
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Display.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/Display.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Display.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Display.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Display.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Display.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Display.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Display.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.s
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Flights.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/Flights.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Flights.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Flights.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Flights.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Flights.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Flights.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Flights.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.s
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Reader.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/Reader.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Reader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Reader.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Reader.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Reader.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Reader.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Reader.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.s
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Menu.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/Menu.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Menu.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Menu.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Menu.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/Menu.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/Menu.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.s
 
 CMakeFiles/Projeto_AED.dir/main.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/main.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/main.cpp
+CMakeFiles/Projeto_AED.dir/main.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/main.cpp
 CMakeFiles/Projeto_AED.dir/main.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Projeto_AED.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/main.cpp.o -MF CMakeFiles/Projeto_AED.dir/main.cpp.o.d -o CMakeFiles/Projeto_AED.dir/main.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Projeto_AED.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/main.cpp.o -MF CMakeFiles/Projeto_AED.dir/main.cpp.o.d -o CMakeFiles/Projeto_AED.dir/main.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/main.cpp"
 
 CMakeFiles/Projeto_AED.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/main.cpp > CMakeFiles/Projeto_AED.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/main.cpp" > CMakeFiles/Projeto_AED.dir/main.cpp.i
 
 CMakeFiles/Projeto_AED.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/main.cpp -o CMakeFiles/Projeto_AED.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/main.cpp" -o CMakeFiles/Projeto_AED.dir/main.cpp.s
 
 CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: CMakeFiles/Projeto_AED.dir/flags.make
-CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp
+CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: /Users/gabrielbraga/Desktop/AED\ PROJ\ 2/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp
 CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o: CMakeFiles/Projeto_AED.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o -c /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o -MF CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o.d -o CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o -c "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp"
 
 CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp > CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp" > CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.i
 
 CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avareno/CLionProjects/AED/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp -o CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Source/AuxiliarFunctions.cpp" -o CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.s
 
 # Object files for target Projeto_AED
 Projeto_AED_OBJECTS = \
@@ -205,7 +205,7 @@ Projeto_AED: CMakeFiles/Projeto_AED.dir/main.cpp.o
 Projeto_AED: CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o
 Projeto_AED: CMakeFiles/Projeto_AED.dir/build.make
 Projeto_AED: CMakeFiles/Projeto_AED.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Projeto_AED"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Projeto_AED"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Projeto_AED.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -217,6 +217,6 @@ CMakeFiles/Projeto_AED.dir/clean:
 .PHONY : CMakeFiles/Projeto_AED.dir/clean
 
 CMakeFiles/Projeto_AED.dir/depend:
-	cd /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/avareno/CLionProjects/AED/Projeto_AED_2 /home/avareno/CLionProjects/AED/Projeto_AED_2 /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug/CMakeFiles/Projeto_AED.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2" "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2" "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug" "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug" "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/cmake-build-debug/CMakeFiles/Projeto_AED.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Projeto_AED.dir/depend
 

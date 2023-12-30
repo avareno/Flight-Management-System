@@ -2,6 +2,7 @@
 // Created by goncalo_feup on 28-11-2023.
 //
 #include "Graph.h"
+#include "set"
 #include "Airports.h"
 #include "Airlines.h"
 #include "Flights.h"
@@ -16,7 +17,7 @@ public:
     int num_airports (Graph<Airports> *g);
     int num_flights (Graph<Airports> *g);
     int flights_per_airport(Graph<Airports> *g, Airports info, vector<Flights> &res);
-    int airlines_per_airport(Graph<Airports> *g, Airports info);
+    int airlines_per_airport(Graph<Airports> *g, Airports info, set<string> &res);
     int countries_per_airport(Graph<Airports> *g, Airports info);
     int destinations_per_airport(Graph<Airports> *g, Airports info);
     int destinations_per_airport(Graph<Airports> *g, Airports info, int max_distance);

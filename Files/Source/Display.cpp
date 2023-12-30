@@ -5,19 +5,35 @@
 Display::Display() {}
 
 int Display::num_airports(Graph<Airports> *g) {
-    return 0;
+    return g->getVertexSet().size();
 }
 
 int Display::num_flights(Graph<Airports> *g) {
-    return 0;
+    int i = 0;
+    for (Vertex<Airports> *v : g->getVertexSet()) {
+        for (Edge<Airports> e : v->getAdj()) {
+            i++;
+        }
+    }
+    return i;
 }
 
 int Display::flights_per_airport(Graph<Airports> *g, Airports info, vector<Flights> &res) {
-    return 0;
+    int count = 0;
+    Vertex<Airports> *v = g->findVertex(info);
+    for (Edge<Airports> e:v->getAdj()) {
+        res.emplace_back(v->getInfo().getCode(),e.getDest()->getInfo().getCode(),e.getAlCode());
+        count++;
+    }
+    return count;
 }
 
-int Display::airlines_per_airport(Graph<Airports> *g, Airports info) {
-    return 0;
+int Display::airlines_per_airport(Graph<Airports> *g, Airports info, set<string> &res) {
+    Vertex<Airports> *v = g->findVertex(info);
+    for (Edge<Airports> e:v->getAdj()) {
+        res.insert(e.getAlCode());
+    }
+    return res.size();
 }
 
 int Display::countries_per_airport(Graph<Airports> *g, Airports info) {

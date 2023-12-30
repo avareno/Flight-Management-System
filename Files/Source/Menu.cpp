@@ -5,8 +5,10 @@
 #include "Menu.h"
 #include "Airports.h"
 #include "Flights.h"
+#include "Display.h"
 #include <cstdlib>
 #include <iostream>
+#include <set>
 
 using namespace std;
 
@@ -18,7 +20,8 @@ Menu::Menu() {
     cout << "3. Display Airports" << endl;
     cout << "4. Display Flights" << endl;
     cout << "5. Search" << endl;
-    cout << "6. Exit" << endl;
+    cout << "6. Statistics" << endl;
+    cout << "7. Exit" << endl;
 }
 
 bool Menu::is_number(const std::string &input) {
@@ -46,7 +49,7 @@ bool Menu::is_upper(const std::string &input) {
     return true;
 }
 
-bool Menu::request(Graph<Airports> g) {
+bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
         string input;
         cout << ">> ";
         cin >> input;
@@ -483,9 +486,77 @@ bool Menu::request(Graph<Airports> g) {
         return false;
     }
 
+    if (input == "6") {
+        cout << '\n';
+        cout << "Statistics:" << endl;
+        cout << "  1. Airport Statistics" << endl;
+        cout << "  2. City Statistics" << endl;
+        cout << "  3. Airline Statistics" << endl;
+        cout << "  4. Total Number of Airports"  << endl;
+        cout << "  5. Total Number of Flights" << endl;
+        cout << "  6. Return to Menu" << endl;
+        while (true) {
+            cout << ">> ";
+            cin >> input;
+            cout << '\n';
+            if (input.length() != 1 || !isdigit(input[0])) {
+                cout << "Invalid input key" << endl;
+            } else {break;}
+        }
+        if (input == "1") {
+            cout << '\n';
+            cout << "Airport Statistics:" << endl;
+            cout << "  1. Flights per Airport" << endl;
+            cout << "  2. Airlines per Airport" << endl;
+            cout << "  3. Countries per Airport" << endl;
+            cout << "  4. Destinations per Airport"  << endl;
+            cout << "  5. Return to Menu" << endl;
+            while (true) {
+                cout << ">> ";
+                cin >> input;
+                cout << '\n';
+                if (input.length() != 1 || !isdigit(input[0])) {
+                    cout << "Invalid input key" << endl;
+                } else {break;}
+            }
+            if (input == "1") {
+                cout << "Input Airport Code:\n>> ";
+                cin >> input;
+                cout << '\n';
+                Airports info;
+                if (aux.findVertexCode(&g, input, info)) {
+                    vector<Flights> res;
+                    cout << "The airport '" << info.getName() << "' has a total of: " <<  display.flights_per_airport(&g,info,res) << " flights." << endl;
+                    for (Flights f:res) {
+                        f.print();
+                    }
+                    cout << '\n';
+                }else{cout << "Invalid Airport Code." << endl;}
+            }
+            if (input == "2") {
+                cout << "Input Airport Code:\n>> ";
+                cin >> input;
+                cout << '\n';
+                Airports info;
+                if (aux.findVertexCode(&g, input, info)) {
+                    set<string> res;
+                    cout << "The airport '" << info.getName() << "' has a total of: " <<  display.airlines_per_airport(&g,info,res) << " airlines." << endl;
+                    for (string al_code:res) {
+                        aux.findAirlineCode(als,al_code).print();
+                        cout << '\n';
+                    }
+                }else{cout << "Invalid Airport Code." << endl;}
+            }
+        }
+        if (input == "4") {
+            cout << "There are " << display.num_airports(&g) << " airports." << endl;
+        }
+        if (input == "5") {
+            cout << "There are " << display.num_flights(&g) << " total flights." << endl;
+        }
+    }
+
     // Exit Option
-    if (input == "6") {return true;}
-
-
+    if (input == "7") {return true;}
 }
 
