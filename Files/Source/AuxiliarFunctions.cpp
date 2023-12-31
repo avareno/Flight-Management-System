@@ -124,8 +124,7 @@ void AuxiliarFunctions::generateCombinationsChosenAirlines(const vector<vector<E
     }
 }
 
-
-bool generateCombinationsChosenAirlines(const std::vector<vector<Edge<Airports>>>& res, std::vector<Edge<Airports>>& current, int depth, const vector<string>& chosenAirlines) {
+bool AuxiliarFunctions::has_combination_airline(const vector<std::vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
         bool isValidCombination = true;
@@ -142,7 +141,7 @@ bool generateCombinationsChosenAirlines(const std::vector<vector<Edge<Airports>>
     // Recursive case: iterate over the current vector and call the function recursively
     for (const auto& edge : res[depth]) {
         current.push_back(edge);
-        if (generateCombinationsChosenAirlines(res, current, depth + 1, chosenAirlines)) {
+        if (has_combination_airline(res, current, depth + 1, chosenAirlines)) {
             return true;
         }
         current.pop_back();

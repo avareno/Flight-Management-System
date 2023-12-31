@@ -27,8 +27,6 @@ public:
 
     float calculate_distance(float slong, float slat, float dlong, float dlat);
 
-    vector<Flights> Airports_to_flights(vector<Airports>);
-
     int calculate_number_of_airlines(vector<Airports> res, Graph<Airports> *g);
 
     bool has_aili(string aili, vector<Airports> res, Graph<Airports> *g);
@@ -40,6 +38,9 @@ public:
 
     void generateCombinationsChosenAirlines(const vector<vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth,
                                             vector<string> &chosenAirlines);
+    bool
+    has_combination_airline(const vector<std::vector<Edge<Airports>>> &res, std::vector<Edge<Airports>> &current,
+                            int depth, const std::vector<std::string> &chosenAirlines);
 };
 
 
