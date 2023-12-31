@@ -1,4 +1,5 @@
 # ninja log v5
+<<<<<<< HEAD
 1	710	1703988169301641544	CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o	9bdf1e2d95c82f10
 640	714	1703993284919169322	Projeto_AED	584981c2240484b4
 1	301	1703985491775522409	CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o	a092ee947253a78a
@@ -47,3 +48,53 @@
 6	866	1704047983510613986	CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o	50ab6b7978ebec4d
 5	949	1704047983596543717	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	3161374c808b2d61
 949	1026	1704047983677433216	Projeto_AED	b7e08191e22ca3b6
+=======
+1	838	1704037360459918328	CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o	5a18a59236980fa7
+947	1027	1704037360651922203	Projeto_AED	584981c2240484b4
+2	367	1704033599401140965	CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o	1d619fdfb8ec57a1
+0	14	1704038050302022412	build.ninja	6319da9bebd96d90
+1	316	1704033599349147043	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	c24da54b3bacc5c8
+1	671	1704033599705105433	CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o	d2e8b04ceb68cb4a
+0	572	1704037360195913002	CMakeFiles/Projeto_AED.dir/main.cpp.o	2fe0df85c6fa1cb3
+1	947	1704037360571920588	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+2	762	1704033599793095147	CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o	3fe031189d8defa
+1	463	1704033599497129744	CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o	b10afe7d1d1bcf59
+1	299	1704038054497842679	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	c24da54b3bacc5c8
+1	472	1704038054669835348	CMakeFiles/Projeto_AED.dir/Files/Source/Airlines.cpp.o	b10afe7d1d1bcf59
+2	520	1704038054717833303	CMakeFiles/Projeto_AED.dir/Files/Source/Flights.cpp.o	1d619fdfb8ec57a1
+2	667	1704038054865826995	CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o	3fe031189d8defa
+1	746	1704038054945823586	CMakeFiles/Projeto_AED.dir/main.cpp.o	2fe0df85c6fa1cb3
+1	748	1704038054945823586	CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o	d2e8b04ceb68cb4a
+2	913	1704038055109816606	CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o	5a18a59236980fa7
+1	304	1704038078772837524	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	c24da54b3bacc5c8
+1	561	1704038079028827227	CMakeFiles/Projeto_AED.dir/main.cpp.o	2fe0df85c6fa1cb3
+1	572	1704038079036826905	CMakeFiles/Projeto_AED.dir/Files/Source/Display.cpp.o	d2e8b04ceb68cb4a
+1	574	1704038079040826745	CMakeFiles/Projeto_AED.dir/Files/Source/Reader.cpp.o	3fe031189d8defa
+2	788	1704038079252818236	CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o	5a18a59236980fa7
+2	891	1704038079356814062	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+0	281	1704038240503479811	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	c24da54b3bacc5c8
+282	357	1704038240575477885	Projeto_AED	584981c2240484b4
+1	304	1704038552425971647	CMakeFiles/Projeto_AED.dir/Files/Source/Airports.cpp.o	c24da54b3bacc5c8
+1	891	1704038553009965672	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+891	970	1704038553089964857	Projeto_AED	584981c2240484b4
+0	888	1704038703220825640	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+888	965	1704038703300825224	Projeto_AED	584981c2240484b4
+1	885	1704038919644282628	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+885	961	1704038919720282616	Projeto_AED	584981c2240484b4
+1	910	1704039133304622414	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+911	991	1704039133384622663	Projeto_AED	584981c2240484b4
+1	856	1704039291877256597	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+856	934	1704039291957256981	Projeto_AED	584981c2240484b4
+0	926	1704039560262820128	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+926	1004	1704039560342820663	Projeto_AED	584981c2240484b4
+0	590	1704040582261980329	CMakeFiles/Projeto_AED.dir/main.cpp.o	2fe0df85c6fa1cb3
+1	838	1704040582509978763	CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o	5a18a59236980fa7
+1	930	1704040582601978180	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+930	1007	1704040582677977700	Projeto_AED	584981c2240484b4
+1	675	1704041397508697258	CMakeFiles/Projeto_AED.dir/main.cpp.o	2fe0df85c6fa1cb3
+1	929	1704041397760697572	CMakeFiles/Projeto_AED.dir/Files/Source/AuxiliarFunctions.cpp.o	5a18a59236980fa7
+1	1065	1704041397896697742	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+1065	1152	1704041397984697852	Projeto_AED	584981c2240484b4
+1	943	1704041651909118415	CMakeFiles/Projeto_AED.dir/Files/Source/Menu.cpp.o	c7f7921dde1ed721
+943	1021	1704041651989118575	Projeto_AED	584981c2240484b4
+>>>>>>> 0f0a5a51531eaa1d137abf2c2abf58511f07810c

@@ -6,9 +6,19 @@ using namespace std;
 Airports::Airports(const string &code, const string &name, const string &city, const string &country, const float &latitude, const float &longitude)
         :  code_(code), name_(name), city_(city), country_(country), latitude_(latitude), longitude_(longitude) {}
 
+Airports::Airports() {
+    this->code_ = "";
+    this->name_ = "";
+    this->city_ = "";
+    this->country_ = "";
+    this->latitude_ = 0;
+    this->longitude_ = 0;
+
+}
 void Airports::print() const {
     cout << "Code: " << code_ << " | " << "City: " << city_ <<  " | " << "Country: " << country_ <<  " | " << "Latitude: " << latitude_ <<  " | " << "Longitude: " << longitude_ << endl;
 }
+
 string Airports::getCode() const {
     return code_;
 }
