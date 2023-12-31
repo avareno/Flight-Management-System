@@ -24,30 +24,6 @@ Menu::Menu() {
     cout << "7. Exit" << endl;
 }
 
-bool Menu::is_number(const std::string &input) {
-    bool hasDecimal = false;
-
-    for (char c : input) {
-        if (!std::isdigit(c)) {
-            if ((c == '.' || c == ',') && !hasDecimal) {
-                hasDecimal = true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    return true;
-}
-
-bool Menu::is_upper(const std::string &input) {
-    for (char c : input) {
-        if (!std::isupper(c)) {
-            return false;
-        }
-    }
-    return true;
-}
 
 bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
         string input;
@@ -68,7 +44,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             cin >> AirCode;
             cout << endl;
 
-            if(AirCode.length() != 3 || is_number(AirCode) || !is_upper(AirCode)) {
+            if(AirCode.length() != 3 || aux.is_number(AirCode) || !aux.is_upper(AirCode)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -78,7 +54,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             getline(cin >> ws,AirName);
             cout << endl;
 
-            if(is_number(AirName)) {
+            if(aux.is_number(AirName)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -88,7 +64,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             getline(cin >> ws,AirCity);
             cout << endl;
 
-            if(is_number(AirCity)) {
+            if(aux.is_number(AirCity)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -99,7 +75,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             cout << endl;
 
 
-            if(is_number(AirCountry)) {
+            if(aux.is_number(AirCountry)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -109,7 +85,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             cin >> Latitude;
             cout << endl;
 
-            if(!is_number(Latitude) || stod(Latitude)>90 || stod(Latitude)<-90) {
+            if(!aux.is_number(Latitude) || stod(Latitude)>90 || stod(Latitude)<-90) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -119,7 +95,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             cin >> Longitude;
             cout << endl;
 
-            if(!is_number(Longitude) || stod(Longitude)>180 || stod(Longitude)<-180) {
+            if(!aux.is_number(Longitude) || stod(Longitude)>180 || stod(Longitude)<-180) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -143,7 +119,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             getline(cin >> ws,source);
             cout << endl;
 
-            if(is_number(source)) {
+            if(source.length() != 3 || aux.is_number(source) || !aux.is_upper(source)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -153,7 +129,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             getline(cin >> ws,target);
             cout << endl;
 
-            if(is_number(target)) {
+            if(target.length() != 3 || aux.is_number(target) || !aux.is_upper(target)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -163,7 +139,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             getline(cin >> ws,AL_code);
             cout << endl;
 
-            if(is_number(AL_code)) {
+            if(source.length() != 3 || aux.is_number(source) || !aux.is_upper(source)) {
                 cout << "Invalid input key" << endl;
                 return false;
             }
@@ -196,69 +172,104 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             return false;
         }
 
-        // Display Airports and total number of Airports
+        // Display Airports
         if (input == "3") {
-            int n_airports = 0;
             for (auto airport : g.getVertexSet()){
                 airport->getInfo().print();
-                n_airports++;
             }
-            cout << "\nGlobal number of Airports: " << n_airports << endl;
             return false;
         }
 
-        // Display Flights and total number of Airports
+        // Display Flights
         if (input == "4") {
-            int n_flights = 0;
             for (auto airport : g.getVertexSet()){
                 for (auto flights : airport->getAdj()){
                     cout << "Source: " << airport->getInfo().getName() << " | " << "Destiny: " << flights.getDest()->getInfo().getName() << endl;
-                    n_flights++;
                 }
             }
-            cout << "\nGlobal number of Flights: " << n_flights << endl;
             return false;
         }
 
     //Search Option
     if(input == "5") {
-        int n;
+        string n;
         cout << "Search:" << endl;
         cout << ">>1. Best Flights" << endl;
         cout << ">>2. Best FLights with filters" << endl;
+        cout << ">> ";
         cin >> n;
 
-        if(n==1) {
+        if(!aux.is_number(n) || stoi(n)>2 || stoi(n)<1) {
+            cout << "Invalid input key" << endl;
+            return false;
+        }
+
+        if(n=="1") {
             cout << "Type of input:" << endl;
             cout <<  "  >>1. Airports Codes" << endl;
             cout <<  "  >>2. Airports Cities" << endl;
             cout <<  "  >>3. Airport Coordinates" << endl;
             cin >> n;
 
-            if(n==1){//code
+            if(!aux.is_number(n) || stoi(n)>3 || stoi(n)<1) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            if(n=="1"){//code
                 cout << "Source Airport code:" << endl;
                 cout << ">> ";
                 string source;
                 cin >> source;
+
+                if(source.length() != 3 || aux.is_number(source) || !aux.is_upper(source)) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << endl;
                 cout << "Destination Airport code:" << endl;
                 cout << ">> ";
                 string dest;
                 cin >> dest;
+
+                if(dest.length() != 3 || aux.is_number(dest) || !aux.is_upper(dest)) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << endl;
 
-                Airports s, d;
-                if (!aux.findVertexCode(&g, source, s) || !aux.findVertexCode(&g, dest, d)) {
+                Airports a1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+                Airports b1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                for (auto &airport : g.getVertexSet()) {
+                    if (airport->getInfo().getCode() == source) {
+                        Airports a1 = airport->getInfo();
+                    }
+                    else if (airport->getInfo().getCode() == dest) {
+                        Airports b1 = airport->getInfo();
+                        airport->setIndegree(airport->getIndegree()+1);
+                    }
+                }
+
+                if (!aux.findVertexCode(&g, source, a1) || !aux.findVertexCode(&g, dest, b1)) {
                     cout << "Invalid Airport code" << endl;
                     return false;
                 }
 
-                int res;
+                string res;
 
-                cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl << "   >>";
                 cin >> res;
-                vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
-                if(res==1){
+
+                if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
+                vector<vector<Airports>> allPaths = aux.best_flight(&g, a1, b1);
+                if(res=="1"){
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
                     } else {
@@ -273,7 +284,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             cout << endl;
                         }
                     }
-                }else if(res==2){
+                }else if(res=="2"){
 
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
@@ -295,38 +306,67 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
 
             }
-            else if(n==2){//cities
+            else if(n=="2"){//cities
                 cout << "Source Airport City:" << endl;
                 cout << ">> ";
                 string source;
                 cin.ignore();
                 getline(cin, source);
+
+                if(aux.is_number(source)) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << endl;
                 cout << "Destination Airport City:" << endl;
                 cout << ">> ";
                 string dest;
                 getline(cin, dest);
+
+                if(aux.is_number(dest)) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << endl;
 
 
-                Airports s, d;
-                if (!aux.findVertexCity(&g, source, s) || !aux.findVertexCity(&g, dest, d)) {
+                Airports a1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+                Airports b1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                for (auto &airport : g.getVertexSet()) {
+                    if (airport->getInfo().getCode() == source) {
+                        Airports a1 = airport->getInfo();
+                    }
+                    else if (airport->getInfo().getCode() == dest) {
+                        Airports b1 = airport->getInfo();
+                        airport->setIndegree(airport->getIndegree()+1);
+                    }
+                }
+                if (!aux.findVertexCity(&g, source, a1) || !aux.findVertexCity(&g, dest, b1)) {
                     cout << "Invalid Airport city" << endl;
                 }
 
 
                 int min = 1000;
-                vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+                vector<vector<Airports>> allPaths = aux.best_flight(&g, a1, b1);
                 if (allPaths.size() == 0) {
                     cout << "No path found" << endl;
                 } else {
-                    int res;
+                    string res;
                     cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                     cin >> res;
+
+                    if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     for (auto path: allPaths) {
                         if (path.size() < min)min = path.size();
                     }
-                    if(res==1) {
+                    if(res=="1") {
                         cout << "Best Flight: " << endl;
                         for (auto path: allPaths) {
                             if (path.size() == min) {
@@ -339,7 +379,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 cout << endl;
                             }
                         }
-                    }else if(res==2){
+                    }else if(res=="2"){
                         vector<Edge<Airports>> res;
                         cout << "Best Flight: " << endl;
                         for(auto path: allPaths){
@@ -362,33 +402,53 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
 
             }
-            else if(n==3){//coordinates
+            else if(n=="3"){//coordinates
                 cout << "Source Latitude:" << endl;
                 cout << ">> ";
-                float slat;
+                string slat;
                 cin >> slat;
+
+                if(!aux.is_number(slat) || stod(slat)>90 || stod(slat)<-90) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << endl;
                 cout << "Source Longitude:" << endl;
                 cout << ">> ";
-                float slong;
+                string slong;
                 cin >> slong;
-                cout << endl;
 
+                if(!aux.is_number(slong) || stod(slong)>180 || stod(slong)<-180) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
+                cout << endl;
                 cout << "Destination Latitude:" << endl;
                 cout << ">> ";
-                float dlat;
+                string dlat;
                 cin >> dlat;
+
+                if(!aux.is_number(dlat) || stod(dlat)>90 || stod(dlat)<-90) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << endl;
                 cout << "Destination Longitude:" << endl;
                 cout << ">> ";
-                float dlong;
+                string dlong;
                 cin >> dlong;
                 cout << endl;
 
-                //create verification in case input is incorrect
-                //if latitude and longitude aren't in the globe?
+                if(!aux.is_number(dlong) || stod(dlong)>180 || stod(dlong)<-180) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
 
-                float min1 = 1000000000, min2 = 1000000000;//find better solution
+
+                float min1 = INT64_MAX, min2 = INT64_MAX;
 
                 //search source airports
                 vector<pair<Airports,float>> s,d;
@@ -396,7 +456,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     float clong, clat;
                     clong = at->getInfo().getLongitude();
                     clat = at->getInfo().getLatitude();
-                    float dis = aux.calculate_distance(slong, slat, clong, clat);
+                    float dis = aux.calculate_distance(stof(slong), stof(slat), clong, clat);
                     if(dis <= min1){
                         min1 = dis;
                         pair<Airports,float> r (at->getInfo(), min1);
@@ -408,7 +468,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     float clong, clat;
                     clong = at->getInfo().getLongitude();
                     clat = at->getInfo().getLatitude();
-                    float dis = aux.calculate_distance(dlong,dlat,clong,clat);
+                    float dis = aux.calculate_distance(stof(dlong), stof(dlat),clong,clat);
                     if(dis <= min2){
                         min2 = dis;
                         pair<Airports,float> r (at->getInfo(), min2);
@@ -433,10 +493,16 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                 if (allPaths.size() == 0) {
                     cout << "No path found" << endl;
                 } else {
-                    int res;
+                    string res;
                     cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                     cin >> res;
-                    if(res==1) {
+
+                    if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    if(res=="1") {
                         cout << "Best Flight: " << endl;
                         for (auto path: allPaths) {
                             for (size_t i = 0; i < path.size(); ++i) {
@@ -447,7 +513,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             }
                             cout << endl;
                         }
-                    }else if(res==2){
+                    }else if(res=="2"){
                         vector<Edge<Airports>> res;
                         cout << "Best Flight: " << endl;
                         for(auto path: allPaths){
@@ -465,7 +531,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
             }
 
-        }else if (n==2){
+        }else if (n=="2"){
             cout << "   >>Filter:" << endl;
             cout << "   >>1.Through Number of Airlines" << endl;
             cout << "   >>2.Through Name of Airlines" << endl;
@@ -474,7 +540,12 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
             cin >> n;
 
-            if(n==1){
+            if(!aux.is_number(n) || stoi(n)>3 || stoi(n)<1) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
+            if(n=="1"){
 
                 cout << "Type of input" << endl;
                 cout <<  "  >>1. Airports Codes" << endl;
@@ -482,38 +553,78 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                 cout <<  "  >>3. Airport Coordinates" << endl;
                 cout << "  >>";
                 cin >> n;
-                int no_air;
+
+                if(!aux.is_number(n) || stoi(n)>3 || stoi(n)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
+                string no_air;
                 cout << "Input number of airlines:" << endl;
                 cin >> no_air;
-                //loop infinito se input invalido
 
-                if(n==1) {
+                if(!aux.is_number(no_air) || stoi(no_air)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
+                if(n=="1") {
                     cout << "Source Airport code:" << endl;
                     cout << ">> ";
                     string source;
                     cin >> source;
+
+                    if(source.length() != 3 || aux.is_number(source) || !aux.is_upper(source)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Destination Airport code:" << endl;
                     cout << ">> ";
                     string dest;
                     cin >> dest;
+
+                    if(dest.length() != 3 || aux.is_number(dest) || !aux.is_upper(dest)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
 
-                    Airports s, d;
-                    if (!aux.findVertexCode(&g, source, s) || !aux.findVertexCode(&g, dest, d)) {
+                    Airports a1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+                    Airports b1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                    for (auto &airport : g.getVertexSet()) {
+                        if (airport->getInfo().getCode() == source) {
+                            Airports a1 = airport->getInfo();
+                        }
+                        else if (airport->getInfo().getCode() == dest) {
+                            Airports b1 = airport->getInfo();
+                            airport->setIndegree(airport->getIndegree()+1);
+                        }
+                    }
+
+                    if (!aux.findVertexCode(&g, source, a1) || !aux.findVertexCode(&g, dest, b1)) {
                         cout << "Invalid Airport code" << endl;
                         return false;
                     }
 
-                    int res;
+                    string res;
                     cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                     cin >> res;
-                    vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+
+                    if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    vector<vector<Airports>> allPaths = aux.best_flight(&g, a1, b1);
 
                     vector<Edge<Airports>> resvector;
 
 
-                    if (res == 1) {//airport codes
+                    if (res == "1") {//airport codes
 
                         if (allPaths.size() == 0) {
                             cout << "No path found" << endl;
@@ -522,7 +633,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             int r = 0;//flag
                             for (auto path: allPaths) {
                                 int minair = aux.calculate_number_of_airlines(path, &g);
-                                if (minair <= no_air) {
+                                if (minair <= stoi(no_air)) {
                                     for (size_t i = 0; i < path.size(); ++i) {
                                         cout << path[i].getName();
                                         if (i < path.size() - 1) {
@@ -535,7 +646,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             }
                             if (r == 0)cout << "No Paths found" << endl;
                         }
-                    } else if (res == 2) {
+                    } else if (res == "2") {
 
                         if (allPaths.size() == 0) {
                             cout << "No path found" << endl;
@@ -545,7 +656,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             for (auto path: allPaths) {
                                 Airports beg = path[0];
                                 int minair = aux.calculate_number_of_airlines(path, &g);
-                                if (minair <= no_air) {
+                                if (minair <= stoi(no_air)) {
                                     r++;
                                     for (size_t i = 0; i < path.size() - 1; ++i) {
                                         g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
@@ -563,44 +674,74 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                     }
                 }
-                else if(n==2){//Airport Cities
+                else if(n=="2"){//Airport Cities
 
                     cout << "Source Airport City:" << endl;
                     cout << ">> ";
                     string source;
                     cin.ignore();
                     getline(cin, source);
+
+                    if(aux.is_number(source)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Destination Airport City:" << endl;
                     cout << ">> ";
                     string dest;
                     getline(cin, dest);
+
+                    if(aux.is_number(dest)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
 
 
-                    Airports s, d;
-                    if (!aux.findVertexCity(&g, source, s) || !aux.findVertexCity(&g, dest, d)) {
+                    Airports a1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+                    Airports b1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                    for (auto &airport : g.getVertexSet()) {
+                        if (airport->getInfo().getCode() == source) {
+                            Airports a1 = airport->getInfo();
+                        }
+                        else if (airport->getInfo().getCode() == dest) {
+                            Airports b1 = airport->getInfo();
+                            airport->setIndegree(airport->getIndegree()+1);
+                        }
+                    }
+
+                    if (!aux.findVertexCity(&g, source, a1) || !aux.findVertexCity(&g, dest, b1)) {
                         cout << "Invalid Airport city" << endl;
                     }
 
 
                     int min = 1000;
-                    vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+                    vector<vector<Airports>> allPaths = aux.best_flight(&g, a1, b1);
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
                     } else {
-                        int res;
+                        string res;
                         cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                         cin >> res;
+
+                        if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                            cout << "Invalid input key" << endl;
+                            return false;
+                        }
+
                         for (auto path: allPaths) {
                             if (path.size() < min)min = path.size();
                         }
-                        if(res==1) {
+                        if(res=="1") {
                             cout << "Best Flight: " << endl;
                             for (auto path: allPaths) {
                                 if (path.size() == min) {
                                     int minair = aux.calculate_number_of_airlines(path, &g);
-                                    if(minair<=no_air) {
+                                    if(minair<=stoi(no_air)) {
                                         for (size_t i = 0; i < path.size(); ++i) {
                                             cout << path[i].getName();
                                             if (i < path.size() - 1) {
@@ -612,7 +753,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
                                 }
                             }
-                        }else if(res==2){
+                        }else if(res=="2"){
                             vector<Edge<Airports>> res;
                             cout << "Best Flight: " << endl;
                             int r = 0;//flag
@@ -622,7 +763,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 if(path.size()==min) {
                                     Airports beg = path[0];
                                     int minair = aux.calculate_number_of_airlines(path, &g);
-                                    if(minair<=no_air) {
+                                    if(minair<=stoi(no_air)) {
                                         r++;
                                         for (size_t i = 0; i < path.size() - 1; ++i) {
                                             g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), res);
@@ -640,33 +781,53 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                     }
                 }
-                else if(n==3){//coordinates
+                else if(n=="3"){//coordinates
                     cout << "Source Latitude:" << endl;
                     cout << ">> ";
-                    float slat;
+                    string slat;
                     cin >> slat;
+
+                    if(!aux.is_number(slat) || stod(slat)>90 || stod(slat)<-90) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Source Longitude:" << endl;
                     cout << ">> ";
-                    float slong;
+                    string slong;
                     cin >> slong;
-                    cout << endl;
 
+                    if(!aux.is_number(slong) || stod(slong)>180 || stod(slong)<-180) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    cout << endl;
                     cout << "Destination Latitude:" << endl;
                     cout << ">> ";
-                    float dlat;
+                    string dlat;
                     cin >> dlat;
+
+                    if(!aux.is_number(dlat) || stod(dlat)>90 || stod(dlat)<-90) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Destination Longitude:" << endl;
                     cout << ">> ";
-                    float dlong;
+                    string dlong;
                     cin >> dlong;
                     cout << endl;
 
-                    //create verification in case input is incorrect
-                    //if latitude and longitude aren't in the globe?
+                    if(!aux.is_number(dlong) || stod(dlong)>180 || stod(dlong)<-180) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
 
-                    float min1 = 1000000000, min2 = 1000000000;//find better solution
+
+                    float min1 = INT64_MAX, min2 = INT64_MAX;//find better solution
 
                     //search source airports
                     vector<pair<Airports,float>> s,d;
@@ -674,7 +835,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         float clong, clat;
                         clong = at->getInfo().getLongitude();
                         clat = at->getInfo().getLatitude();
-                        float dis = aux.calculate_distance(slong, slat, clong, clat);
+                        float dis = aux.calculate_distance(stof(slong), stof(slat), clong, clat);
                         if(dis <= min1){
                             min1 = dis;
                             pair<Airports,float> r (at->getInfo(), min1);
@@ -686,7 +847,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         float clong, clat;
                         clong = at->getInfo().getLongitude();
                         clat = at->getInfo().getLatitude();
-                        float dis = aux.calculate_distance(dlong,dlat,clong,clat);
+                        float dis = aux.calculate_distance(stof(dlong),stof(dlat),clong,clat);
                         if(dis <= min2){
                             min2 = dis;
                             pair<Airports,float> r (at->getInfo(), min2);
@@ -711,14 +872,20 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
                     } else {
-                        int res;
+                        string res;
                         cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                         cin >> res;
-                        if(res==1) {
+
+                        if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                            cout << "Invalid input key" << endl;
+                            return false;
+                        }
+
+                        if(res=="1") {
                             cout << "Best Flight: " << endl;
                             for (auto path: allPaths) {
                                 int minair = aux.calculate_number_of_airlines(path, &g);
-                                if(minair<=no_air) {
+                                if(minair<=stoi(no_air)) {
                                     for (size_t i = 0; i < path.size(); ++i) {
                                         cout << path[i].getName();
                                         if (i < path.size() - 1) {
@@ -728,13 +895,13 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 }
                                 cout << endl;
                             }
-                        }else if(res==2){
+                        }else if(res=="2"){
                             vector<Edge<Airports>> res;
                             cout << "Best Flight: " << endl;
                             for(auto path: allPaths){
                                 Airports beg = path[0];
                                 int minair = aux.calculate_number_of_airlines(path, &g);
-                                if(minair<=no_air) {
+                                if(minair<=stoi(no_air)) {
                                     for(size_t i = 0; i < path.size()-1; ++i){
                                         g.findVertex(path[i])->getEdge(g.findVertex(path[i+1]), res);
                                     }
@@ -753,45 +920,85 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
 
             }
-            else if(n==2){
+            else if(n=="2"){
                 cout << "Type of input" << endl;
                 cout <<  "  >>1. Airports Codes" << endl;
                 cout <<  "  >>2. Airports Cities" << endl;
                 cout <<  "  >>3. Airport Coordinates" << endl;
                 cout << "  >>";
                 cin >> n;
+
+                if(!aux.is_number(n) || stoi(n)>3 || stoi(n)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 string ci_na;
                 cout << "Input city of name:" << endl;
                 cin >> ci_na;
-                //loop infinito se input invalido
 
-                if(n==1) {
+                if(aux.is_number(ci_na)) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
+                if(n=="1") {
                     cout << "Source Airport code:" << endl;
                     cout << ">> ";
                     string source;
                     cin >> source;
+
+                    if(source.length() != 3 || aux.is_number(source) || !aux.is_upper(source)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Destination Airport code:" << endl;
                     cout << ">> ";
                     string dest;
                     cin >> dest;
+
+                    if(dest.length() != 3 || aux.is_number(dest) || !aux.is_upper(dest)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
 
-                    Airports s, d;
-                    if (!aux.findVertexCode(&g, source, s) || !aux.findVertexCode(&g, dest, d)) {
+                    Airports a1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+                    Airports b1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                    for (auto &airport : g.getVertexSet()) {
+                        if (airport->getInfo().getCode() == source) {
+                            Airports a1 = airport->getInfo();
+                        }
+                        else if (airport->getInfo().getCode() == dest) {
+                            Airports b1 = airport->getInfo();
+                            airport->setIndegree(airport->getIndegree()+1);
+                        }
+                    }
+
+                    if (!aux.findVertexCode(&g, source, a1) || !aux.findVertexCode(&g, dest, b1)) {
                         cout << "Invalid Airport code" << endl;
                         return false;
                     }
 
-                    int res;
+                    string res;
                     cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                     cin >> res;
-                    vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+
+                    if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    vector<vector<Airports>> allPaths = aux.best_flight(&g, a1, b1);
 
                     vector<Edge<Airports>> resvector;
 
 
-                    if (res == 1) {//airport codes
+                    if (res == "1") {//airport codes
 
                         if (allPaths.size() == 0) {
                             cout << "No path found" << endl;
@@ -812,7 +1019,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             }
                             if (r == 0)cout << "No Paths found" << endl;
                         }
-                    } else if (res == 2) {
+                    } else if (res == "2") {
 
                         if (allPaths.size() == 0) {
                             cout << "No path found" << endl;
@@ -839,39 +1046,70 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                     }
                 }
-                else if(n==2){//Airport Cities
+                else if(n=="2"){//Airport Cities
 
                     cout << "Source Airport City:" << endl;
                     cout << ">> ";
                     string source;
                     cin.ignore();
                     getline(cin, source);
+
+                    if(aux.is_number(source)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Destination Airport City:" << endl;
                     cout << ">> ";
                     string dest;
                     getline(cin, dest);
+
+                    if(aux.is_number(dest)) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
 
 
-                    Airports s, d;
-                    if (!aux.findVertexCity(&g, source, s) || !aux.findVertexCity(&g, dest, d)) {
+                    Airports a1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+                    Airports b1 = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                    for (auto &airport : g.getVertexSet()) {
+                        if (airport->getInfo().getCode() == source) {
+                            Airports a1 = airport->getInfo();
+                        }
+                        else if (airport->getInfo().getCode() == dest) {
+                            Airports b1 = airport->getInfo();
+                            airport->setIndegree(airport->getIndegree()+1);
+                        }
+                    }
+
+                    if (!aux.findVertexCity(&g, source, a1) || !aux.findVertexCity(&g, dest, b1)) {
                         cout << "Invalid Airport city" << endl;
+                        return false;
                     }
 
 
                     int min = 1000;
-                    vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+                    vector<vector<Airports>> allPaths = aux.best_flight(&g, a1, b1);
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
                     } else {
-                        int res;
+                        string res;
                         cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                         cin >> res;
+
+                        if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                            cout << "Invalid input key" << endl;
+                            return false;
+                        }
+
                         for (auto path: allPaths) {
                             if (path.size() < min)min = path.size();
                         }
-                        if(res==1) {
+                        if(res=="1") {
                             cout << "Best Flight: " << endl;
                             for (auto path: allPaths) {
                                 if (path.size() == min) {
@@ -889,7 +1127,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                     }
                                 }
                             }
-                        }else if(res==2){
+                        }else if(res=="2"){
                             vector<Edge<Airports>> res;
                             cout << "Best Flight: " << endl;
                             int r = 0;//flag
@@ -916,33 +1154,52 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                     }
                 }
-                else if(n==3){//coordinates
+                else if(n=="3"){//coordinates
                     cout << "Source Latitude:" << endl;
                     cout << ">> ";
-                    float slat;
+                    string slat;
                     cin >> slat;
+
+                    if(!aux.is_number(slat) || stod(slat)>90 || stod(slat)<-90) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Source Longitude:" << endl;
                     cout << ">> ";
-                    float slong;
+                    string slong;
                     cin >> slong;
-                    cout << endl;
 
+                    if(!aux.is_number(slong) || stod(slong)>180 || stod(slong)<-180) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    cout << endl;
                     cout << "Destination Latitude:" << endl;
                     cout << ">> ";
-                    float dlat;
+                    string dlat;
                     cin >> dlat;
+
+                    if(!aux.is_number(dlat) || stod(dlat)>90 || stod(dlat)<-90) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
                     cout << endl;
                     cout << "Destination Longitude:" << endl;
                     cout << ">> ";
-                    float dlong;
+                    string dlong;
                     cin >> dlong;
                     cout << endl;
 
-                    //create verification in case input is incorrect
-                    //if latitude and longitude aren't in the globe?
+                    if(!aux.is_number(dlong) || stod(dlong)>180 || stod(dlong)<-180) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
 
-                    float min1 = 1000000000, min2 = 1000000000;//find better solution
+                    float min1 = INT64_MAX, min2 = INT64_MAX;//find better solution
 
                     //search source airports
                     vector<pair<Airports,float>> s,d;
@@ -950,7 +1207,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         float clong, clat;
                         clong = at->getInfo().getLongitude();
                         clat = at->getInfo().getLatitude();
-                        float dis = aux.calculate_distance(slong, slat, clong, clat);
+                        float dis = aux.calculate_distance(stof(slong), stof(slat), clong, clat);
                         if(dis <= min1){
                             min1 = dis;
                             pair<Airports,float> r (at->getInfo(), min1);
@@ -962,7 +1219,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         float clong, clat;
                         clong = at->getInfo().getLongitude();
                         clat = at->getInfo().getLatitude();
-                        float dis = aux.calculate_distance(dlong,dlat,clong,clat);
+                        float dis = aux.calculate_distance(stof(dlong),stof(dlat),clong,clat);
                         if(dis <= min2){
                             min2 = dis;
                             pair<Airports,float> r (at->getInfo(), min2);
@@ -987,10 +1244,16 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
                     } else {
-                        int res;
+                        string res;
                         cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
                         cin >> res;
-                        if(res==1) {
+
+                        if(!aux.is_number(res) || stoi(res)>2 || stoi(res)<1) {
+                            cout << "Invalid input key" << endl;
+                            return false;
+                        }
+
+                        if(res=="1") {
                             cout << "Best Flight: " << endl;
                             for (auto path: allPaths) {
                                 if(aux.has_aili(ci_na, path,&g)) {
@@ -1003,7 +1266,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 cout << endl;
                                 }
                             }
-                        }else if(res==2){
+                        }else if(res=="2"){
                             vector<Edge<Airports>> res;
                             cout << "Best Flight: " << endl;
                             for(auto path: allPaths){
@@ -1024,10 +1287,11 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                 }
                 //implement wrong inputs
             }
-            else if (n==3){
+            else if (n=="3"){
 
             }else{
                 cout << "Invalid Input" << endl;
+                return false;
             }
 
         }
@@ -1048,9 +1312,16 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
         while (true) {
             cout << ">> ";
             cin >> input;
+
+            if(!aux.is_number(input) || stoi(input)>6 || stoi(input)<1) {
+                cout << "Invalid input key" << endl;
+                return false;
+            }
+
             cout << '\n';
             if (input.length() != 1 || !isdigit(input[0])) {
                 cout << "Invalid input key" << endl;
+                return false;
             } else {break;}
         }
         if (input == "1") {
@@ -1064,16 +1335,35 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             while (true) {
                 cout << ">> ";
                 cin >> input;
+
+                if(!aux.is_number(input) || stoi(input)>5 || stoi(input)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << '\n';
                 if (input.length() != 1 || !isdigit(input[0])) {
                     cout << "Invalid input key" << endl;
+                    return false;
                 } else {break;}
             }
             if (input == "1") {
                 cout << "Input Airport Code:\n>> ";
                 cin >> input;
+
+                if(!aux.is_number(input) || stoi(input)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << '\n';
-                Airports info;
+                Airports info = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                for (auto &airport : g.getVertexSet()) {
+                    if (airport->getInfo().getCode() == input) {
+                        Airports info = airport->getInfo();
+                    }
+                }
                 if (aux.findVertexCode(&g, input, info)) {
                     vector<Flights> res;
                     cout << "The airport '" << info.getName() << "' has a total of: " <<  display.flights_per_airport(&g,info,res) << " flights." << endl;
@@ -1081,13 +1371,28 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         f.print();
                     }
                     cout << '\n';
-                }else{cout << "Invalid Airport Code." << endl;}
+                }else{
+                    cout << "Invalid Airport Code." << endl;
+                    return false;
+                }
             }
             if (input == "2") {
                 cout << "Input Airport Code:\n>> ";
                 cin >> input;
+
+                if(!aux.is_number(input) || stoi(input)<1) {
+                    cout << "Invalid input key" << endl;
+                    return false;
+                }
+
                 cout << '\n';
-                Airports info;
+                Airports info = Airports("a", "a", "a", "a", 0.0, 0.0);
+
+                for (auto &airport : g.getVertexSet()) {
+                    if (airport->getInfo().getCode() == input) {
+                        Airports info = airport->getInfo();
+                    }
+                }
                 if (aux.findVertexCode(&g, input, info)) {
                     set<string> res;
                     cout << "The airport '" << info.getName() << "' has a total of: " <<  display.airlines_per_airport(&g,info,res) << " airlines." << endl;
@@ -1095,14 +1400,20 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         aux.findAirlineCode(als,al_code).print();
                         cout << '\n';
                     }
-                }else{cout << "Invalid Airport Code." << endl;}
+                }else{
+                    cout << "Invalid Airport Code." << endl;
+                    return false;
+                }
             }
+            return false;
         }
         if (input == "4") {
             cout << "There are " << display.num_airports(&g) << " airports." << endl;
+            return false;
         }
         if (input == "5") {
             cout << "There are " << display.num_flights(&g) << " total flights." << endl;
+            return false;
         }
     }
 

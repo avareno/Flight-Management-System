@@ -12,7 +12,6 @@ class Airports {
 public:
     Airports(const string &code, const string &name, const string &city, const string &country, const float &latitude,
              const float &longitude);
-    Airports();
     void print() const; ///< Complexity: O(1)
     string getCode() const; ///< Complexity: O(1)
     string getName() const; ///< Complexity: O(1)

@@ -1,6 +1,6 @@
-/home/avareno/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/avareno/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/avareno/CLionProjects/AED/Projeto_AED_2 -B /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug
--- The C compiler identification is GNU 13.2.0
--- The CXX compiler identification is GNU 13.2.0
+/snap/clion/261/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/261/bin/ninja/linux/x64/ninja -G Ninja -S /home/goncalo_feup/Desktop/AED/Projeto_2/Projeto_AED -B /home/goncalo_feup/Desktop/AED/Projeto_2/Projeto_AED/cmake-build-debug
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Check for working C compiler: /usr/bin/cc - skipped
@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (0.3s)
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
--- Build files have been written to: /home/avareno/CLionProjects/AED/Projeto_AED_2/cmake-build-debug
+-- Build files have been written to: /home/goncalo_feup/Desktop/AED/Projeto_2/Projeto_AED/cmake-build-debug
