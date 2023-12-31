@@ -915,7 +915,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                     }
 
-                }//implement wrong inputs
+                }
 
 
 
@@ -1285,7 +1285,6 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     }
 
                 }
-                //implement wrong inputs
             }
             else if (n=="3"){
 
