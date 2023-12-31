@@ -9,6 +9,7 @@
 #include "Graph.h"
 #include "Airports.h"
 #include "Flights.h"
+#include "Airlines.h"
 
 class AuxiliarFunctions {
 public:
@@ -31,6 +32,12 @@ public:
                             int nairlines);
 
     vector<Flights> Airports_to_flights(vector<Airports>);
+
+    int calculate_number_of_airlines(vector<Airports> res, Graph<Airports> *g);
+
+    bool has_aili(string aili, vector<Airports> res, Graph<Airports> *g);
+
+    Airlines findAirlineCode(vector<Airlines> *v, string alcode);
 };
 
 
