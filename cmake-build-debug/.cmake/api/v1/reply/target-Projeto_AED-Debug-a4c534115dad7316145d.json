@@ -42,14 +42,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=13.0 -fcolor-diagnostics"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/goncalo_feup/Desktop/AED/Projeto_2/Projeto_AED/Files/Header"
+					"path" : "/Users/gabrielbraga/Desktop/AED PROJ 2/Projeto_AED_2/Files/Header"
 				}
 			],
 			"language" : "CXX",

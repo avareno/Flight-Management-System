@@ -18,9 +18,9 @@ public:
     int num_flights (Graph<Airports> *g);
     int flights_per_airport(Graph<Airports> *g, Airports info, vector<Flights> &res);
     int airlines_per_airport(Graph<Airports> *g, Airports info, set<string> &res);
-    int countries_per_airport(Graph<Airports> *g, Airports info);
-    int destinations_per_airport(Graph<Airports> *g, Airports info);
-    int destinations_per_airport(Graph<Airports> *g, Airports info, int max_distance);
+    int countries_per_airport(Graph<Airports> *g, Airports info, set<string> &res);
+    int destinations_per_airport(Graph<Airports> *g, Airports info, string input, set<string> &res);
+    int destinations_per_airport(Graph<Airports> *g, Airports info, string input, set<string> &res, int max_distance);
     int flights_per_city(Graph<Airports> *g, string city);
     int countries_per_city(Graph<Airports> *g, string city);
     int flights_per_airline(Graph<Airports> *g, string al_code);

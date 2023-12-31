@@ -36,15 +36,33 @@ int Display::airlines_per_airport(Graph<Airports> *g, Airports info, set<string>
     return res.size();
 }
 
-int Display::countries_per_airport(Graph<Airports> *g, Airports info) {
-    return 0;
+int Display::countries_per_airport(Graph<Airports> *g, Airports info, set<string> &res) {
+    Vertex<Airports> *v = g->findVertex(info);
+    for (Edge<Airports> e:v->getAdj()) {
+        res.insert(e.getDest()->getInfo().getCountry());
+    }
+    return res.size();
 }
 
-int Display::destinations_per_airport(Graph<Airports> *g, Airports info) {
-    return 0;
+int Display::destinations_per_airport(Graph<Airports> *g, Airports info, string input, set<string> &res) {
+    vector<Airports> destinations = g->dfs(info);
+    if (input == "1") {
+        for (Airports ap : destinations) {
+            res.insert(ap.getCode());
+        }
+    }else if (input == "2") {
+        for (Airports ap : destinations) {
+            res.insert(ap.getCity());
+        }
+    }else if (input == "3") {
+        for (Airports ap : destinations) {
+            res.insert(ap.getCountry());
+        }
+    }
+    return res.size();
 }
 
-int Display::destinations_per_airport(Graph<Airports> *g, Airports info, int max_distance) {
+int Display::destinations_per_airport(Graph<Airports> *g, Airports info, string input, set<string> &res, int max_distance) {
     return 0;
 }
 
