@@ -141,3 +141,18 @@ int AuxiliarFunctions::calculate_number_of_airlines(vector<Airports> res, Graph<
     }
     return uniqueAlCodes.size();
 }
+
+bool AuxiliarFunctions::has_aili(string aili, vector<Airports> res,Graph<Airports> *g){
+    vector<Edge<Airports>> edges;
+    for(size_t i = 0; i < res.size()-1; ++i){
+        g->findVertex(res[i])->getEdge(g->findVertex(res[i+1]), edges);
+    }
+
+    for (auto edge : edges) {
+        if(edge.getAlCode() == aili){
+            return true;
+        }
+    }
+    return false;
+}
+

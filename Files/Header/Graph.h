@@ -253,7 +253,6 @@ void Vertex<T>::getEdge(const Vertex<T> *dest, vector<Edge<T>> &res){
     for(Edge<T> at: this->getAdj()){
         if(at.getDest()->getInfo()==dest->getInfo()){
             res.push_back(at);
-            break;
         }
     }
 }
