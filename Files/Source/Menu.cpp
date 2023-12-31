@@ -1311,20 +1311,14 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
         while (true) {
             cout << ">> ";
             cin >> input;
+            cout << '\n';
 
             if(!aux.is_number(input) || stoi(input)>6 || stoi(input)<1) {
                 cout << "Invalid input key" << endl;
-                return false;
-            }
-
+            }else{break;}
             cout << '\n';
-            if (input.length() != 1 || !isdigit(input[0])) {
-                cout << "Invalid input key" << endl;
-                return false;
-            } else {break;}
         }
         if (input == "1") {
-            cout << '\n';
             cout << "Airport Statistics:" << endl;
             cout << "  1. Flights per Airport" << endl;
             cout << "  2. Airlines per Airport" << endl;
@@ -1337,13 +1331,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
                 if(!aux.is_number(input) || stoi(input)>5 || stoi(input)<1) {
                     cout << "Invalid input key" << endl;
-                    return false;
-                }
+                }else{break;}
                 cout << '\n';
-                if (input.length() != 1 || !isdigit(input[0])) {
-                    cout << "Invalid input key" << endl;
-                    return false;
-                } else {break;}
             }
             if (input == "1") {
                 cout << "Input Airport Code:\n>> ";
@@ -1406,31 +1395,71 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                 cin >> input;
                 cout << '\n';
 
-                cout << "Display:\n  1. Reachable Airports\n  2. Reachable Cities\n  3. Reachable Countries\n>> ";
-                string option;
-                cin >> option;
-                cout << '\n';
-
-                if(!aux.is_number(option) || stoi(option)>3 || stoi(option)<1) {
-                    cout << "Invalid input key" << endl;
-                    return false;
-                }
-
                 Airports info = Airports("a", "a", "a", "a", 0.0, 0.0);
 
                 if (aux.findVertexCode(&g, input, info)) {
+                    vector<Airports> res_ap;
                     set<string> res;
+                    int max_distance;
+
+                    cout << "Display:\n"
+                            "  1. Reachable Airports\n"
+                            "  2. Reachable Cities\n"
+                            "  3. Reachable Countries\n"
+                            ">> ";
+                    string option;
+                    cin >> option;
+                    cout << '\n';
+
+                    if(!aux.is_number(option) || stoi(option)>3 || stoi(option)<1) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    cout << "Do you wish to define a maximum number of stops (lay-overs)?\n"
+                            "  1. Yes\n"
+                            "  2. No\n"
+                            ">> ";
+                    string layovers;
+                    cin >> layovers;
+                    cout << '\n';
+
+                    if(!aux.is_number(layovers) || stoi(layovers)>2 || stoi(layovers)<1) {
+                        cout << "Invalid input key" << endl;
+                        return false;
+                    }
+
+                    if (layovers == "1") {
+                        cout << "Input Maximum Number of Stops:\n"
+                                ">> ";
+                        string distance;
+                        cin >> distance;
+                        if(!aux.is_number(distance)) {
+                            cout << "Invalid input key" << endl;
+                            return false;
+                        }
+                        max_distance = stoi(distance);
+                    }
+
                     if (option == "1") {
-                        cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport(&g,info,"1",res) << " airports." << endl;
+                        if (layovers == "2")
+                            cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport_ap(&g,info,res_ap) << " airports." << endl;
+                        if (layovers == "1")
+                            cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport_ap(&g,info,res_ap,max_distance) << " airports in " << max_distance << " stops." << endl;
                     }else if(option == "2") {
-                        cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport(&g,info,"2",res) << " cities." << endl;
+                        if (layovers == "2")
+                            cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport_string(&g,info,"2",res) << " cities." << endl;
+                        if (layovers == "1")
+                            cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport_string(&g,info,"2",res,max_distance) << " cities in " << max_distance << " stops." << endl;
                     }else if(option == "3") {
-                        cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport(&g,info,"3",res) << " countries." << endl;
+                        if (layovers == "2")
+                            cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport_string(&g,info,"3",res) << " countries." << endl;
+                        if (layovers == "1")
+                            cout << "The airport '" << info.getName() << "' can reach a total of: " << display.destinations_per_airport_string(&g,info,"3",res,max_distance) << " countries in " << max_distance << " stops." << endl;
                     }
                     if(option == "1") {
-                        Airports destination = Airports("a", "a", "a", "a", 0.0, 0.0);
-                        for (string dest : res) {
-                            if (aux.findVertexCode(&g,dest,destination)) {destination.print();}
+                        for (Airports dest : res_ap) {
+                            dest.print();
                         }
                     }else {
                         for (string dest : res) {
@@ -1444,10 +1473,97 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             }
             return false;
         }
+
+        if (input == "2") {
+            cout << "City Statistics:" << endl;
+            cout << "  1. Flights per City" << endl;
+            cout << "  2. Countries per City" << endl;
+            cout << "  3. Return to Menu" << endl;
+            while (true) {
+                cout << ">> ";
+                cin >> input;
+                cout << '\n';
+
+                if(!aux.is_number(input) || stoi(input)>3 || stoi(input)<1) {
+                    cout << "Invalid input key" << endl;
+                }else{break;}
+                cout << '\n';
+            }
+            string city_name;
+            if (input == "1") {
+                cout << "Input City Name:\n"
+                        ">> ";
+                cin >> city_name;
+                cout << '\n';
+                vector<Flights> res;
+                int num = display.flights_per_city(&g,city_name,res);
+                if (num == 0) {
+                    cout << city_name << " has no available flights, or does not exist." << endl;
+                } else {
+                    cout << city_name << " has a total of " << num << " flights." << endl;
+                    for (Flights f : res) {
+                        f.print();
+                    }
+                }
+            }
+            if (input == "2") {
+                cout << "Input City Name:\n"
+                        ">> ";
+                cin >> city_name;
+                cout << '\n';
+                set<string> res;
+                int num = display.countries_per_city(&g,city_name,res);
+                if (num == 0) {
+                    cout << city_name << " does not have flights leading to any country, or does not exist." << endl;
+                } else {
+                    cout << city_name << " has flights leading to a total of " << num << " countries." << endl;
+                    for (string c : res) {
+                        cout << c << endl;
+                    }
+                }
+            }
+            return false;
+        }
+
+        if (input == "3") {
+            cout << "Airline Statistics:" << endl;
+            cout << "  1. Flights per Airline" << endl;
+            cout << "  2. Return to Menu" << endl;
+            while (true) {
+                cout << ">> ";
+                cin >> input;
+                cout << '\n';
+
+                if(!aux.is_number(input) || stoi(input)>2 || stoi(input)<1) {
+                    cout << "Invalid input key" << endl;
+                }else{break;}
+                cout << '\n';
+            }
+            string al_code;
+            if (input == "1") {
+                cout << "Input Airline Code:\n"
+                        ">> ";
+                cin >> al_code;
+                cout << '\n';
+                Airlines al = aux.findAirlineCode(als,al_code);
+                if (al.getName() == "") {
+                    cout << "Invalid Airline Code" << endl;
+                    return false;
+                }
+                vector<Flights> res;
+                cout << al.getName() << " has a total of " << display.flights_per_airline(&g,al_code,res) << " flights." << endl;
+                for (Flights f : res) {
+                    f.print();
+                }
+            }
+            return false;
+        }
+
         if (input == "4") {
             cout << "There are " << display.num_airports(&g) << " airports." << endl;
             return false;
         }
+
         if (input == "5") {
             cout << "There are " << display.num_flights(&g) << " total flights." << endl;
             return false;
