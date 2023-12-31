@@ -63,6 +63,8 @@ public:
     friend class Graph<T>;
 
     void getEdge(const Vertex<T>* dest, vector<Edge<T>> &res);
+
+    void getEdge(const Vertex<T> *dest, vector<vector<Edge<T>>> &res);
 };
 
 template <class T>
@@ -257,6 +259,18 @@ void Vertex<T>::getEdge(const Vertex<T> *dest, vector<Edge<T>> &res){
     }
 }
 
+template<class T>
+void Vertex<T>::getEdge(const Vertex<T> *dest, vector<vector<Edge<T>>> &res){
+
+    //change this func
+    vector<Edge<T>> m;
+    for(Edge<T> at: this->getAdj()){
+        if(at.getDest()->getInfo()==dest->getInfo()){
+            m.push_back(at);
+        }
+    }
+    res.push_back(m);
+}
 /*
  *  Adds a vertex with a given content or info (in) to a graph (this).
  *  Returns true if successful, and false if a vertex with that content already exists.

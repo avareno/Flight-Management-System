@@ -4,11 +4,12 @@
 
 #include "AuxiliarFunctions.hpp"
 #include "Airports.h"
-#include "Flights.h"
 #include "Airlines.h"
 #include <math.h>
 #include <queue>
 #include <set>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -91,6 +92,60 @@ vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g
     return allPaths;
 }
 
+void AuxiliarFunctions::generateCombinationsChosenAirlines(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, vector<string>& chosenAirlines) {
+    if (depth == res.size()) {
+        // Base case: reached the last vector in res
+        bool isValidCombination = true;
+        for (const auto& edge : current) {
+            if (!chosenAirlines.empty() && find(chosenAirlines.begin(), chosenAirlines.end(), edge.getAlCode()) == chosenAirlines.end()) {
+                isValidCombination = false;
+                break;
+            }
+        }
+
+        if (isValidCombination) {
+            for (size_t i = 0; i < current.size(); ++i) {
+                cout << current[i].getDest()->getInfo().getName() << " with " << current[i].getAlCode() << " airline ";
+                if (i < current.size() - 1) {
+                    cout << "->";
+                }
+            }
+            cout << endl;
+        }
+
+        return;
+    }
+
+    // Recursive case: iterate over the current vector and call the function recursively
+    for (const auto& edge : res[depth]) {
+        current.push_back(edge);
+        generateCombinationsChosenAirlines(res, current, depth + 1, chosenAirlines);
+        current.pop_back();
+    }
+}
+
+
+
+void AuxiliarFunctions::generateCombinations(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth) {
+    if (depth == res.size()) {
+        // Base case: reached the last vector in res
+        for (size_t i = 0; i < current.size(); ++i) {
+            cout << current[i].getDest()->getInfo().getName() << " with " << current[i].getAlCode() << " airline ";
+            if (i < current.size() - 1) {
+                cout << "->";
+            }
+        }
+        cout << endl;
+        return;
+    }
+
+    // Recursive case: iterate over the current vector and call the function recursively
+    for (const auto& edge : res[depth]) {
+        current.push_back(edge);
+        generateCombinations(res, current, depth + 1);
+        current.pop_back();
+    }
+}
 
 
 
