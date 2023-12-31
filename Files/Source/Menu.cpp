@@ -767,9 +767,17 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     cout << ">> ";
                     vector<string> airlines;
                     string airline;
-                    while(cin >> airline){
+                    int num=0;
+                    cout << "number of airlines" << endl;
+                    cin >> num;
+                    if(num>0)cout << endl << "Introduce airlines:" << endl;
+
+                    while(num--){
+                        cout << ">> ";
+                        cin >> airline;
                         airlines.push_back(airline);
                     }
+
 
 
                     //loop infinito se input invalido
@@ -824,23 +832,18 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             if (allPaths.size() == 0) {
                                 cout << "No path found" << endl;
                             } else {
-                                int r = 0;//flag
                                 cout << "Best Flight: " << endl;
                                 for (auto path: allPaths) {
                                     Airports beg = path[0];
-                                    r++;
                                     for (size_t i = 0; i < path.size() - 1; ++i) {
                                         g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
                                     }
                                     cout << "From: " << beg.getName()<<endl;
                                     vector<Edge<Airports>> temp;
                                     aux.generateCombinationsChosenAirlines(resvector, temp, 0, airlines);
-
+                                    //create func to check if found anything or not and print Not founf case not found
                                 }
 
-                                if(r==0){
-                                    cout << "No Paths Found";
-                                }
                             }
                         }
                     }
@@ -907,6 +910,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                                 g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), res);
                                             }
                                             vector<Edge<Airports>> temp;
+                                            airlines.push_back("TAP");
                                             aux.generateCombinations(res,temp,0);
                                         }
                                         cout << endl;
