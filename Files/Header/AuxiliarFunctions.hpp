@@ -36,11 +36,20 @@ public:
     void
     generateCombinations(const vector<std::vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth);
 
-    void generateCombinationsChosenAirlines(const vector<vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth,
-                                            vector<string> &chosenAirlines);
+    void generateCombinationsChosenAirlinesCode(const vector<vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth,
+                                                vector<string> &chosenAirlines);
     bool
-    has_combination_airline(const vector<std::vector<Edge<Airports>>> &res, std::vector<Edge<Airports>> &current,
-                            int depth, const std::vector<std::string> &chosenAirlines);
+    has_combination_airline_code(const vector<std::vector<Edge<Airports>>> &res, std::vector<Edge<Airports>> &current,
+                                 int depth, const std::vector<std::string> &chosenAirlines);
+
+    void
+    generateCombinationsChosenAirlinesName(const vector<vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current,
+                                           int depth, vector<string> &chosenAirlines);
+
+    bool
+    has_combination_airline_name(const vector<std::vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current,
+                                 int depth,
+                                 const vector<std::string> &chosenAirlines);
 };
 
 

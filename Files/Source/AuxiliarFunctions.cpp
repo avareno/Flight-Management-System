@@ -92,7 +92,7 @@ vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g
     return allPaths;
 }
 
-void AuxiliarFunctions::generateCombinationsChosenAirlines(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, vector<string>& chosenAirlines) {
+void AuxiliarFunctions::generateCombinationsChosenAirlinesCode(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, vector<string>& chosenAirlines) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
         bool isValidCombination = true;
@@ -119,12 +119,12 @@ void AuxiliarFunctions::generateCombinationsChosenAirlines(const vector<vector<E
     // Recursive case: iterate over the current vector and call the function recursively
     for (const auto& edge : res[depth]) {
         current.push_back(edge);
-        generateCombinationsChosenAirlines(res, current, depth + 1, chosenAirlines);
+        generateCombinationsChosenAirlinesCode(res, current, depth + 1, chosenAirlines);
         current.pop_back();
     }
 }
 
-bool AuxiliarFunctions::has_combination_airline(const vector<std::vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
+bool AuxiliarFunctions::has_combination_airline_code(const vector<std::vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
         bool isValidCombination = true;
@@ -141,7 +141,66 @@ bool AuxiliarFunctions::has_combination_airline(const vector<std::vector<Edge<Ai
     // Recursive case: iterate over the current vector and call the function recursively
     for (const auto& edge : res[depth]) {
         current.push_back(edge);
-        if (has_combination_airline(res, current, depth + 1, chosenAirlines)) {
+        if (has_combination_airline_code(res, current, depth + 1, chosenAirlines)) {
+            return true;
+        }
+        current.pop_back();
+    }
+
+    return false;
+}
+
+
+void AuxiliarFunctions::generateCombinationsChosenAirlinesName(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, vector<string>& chosenAirlines) {
+    if (depth == res.size()) {
+        // Base case: reached the last vector in res
+        bool isValidCombination = true;
+        for (const auto& edge : current) {
+            if (!chosenAirlines.empty() && find(chosenAirlines.begin(), chosenAirlines.end(), edge.getAlCode()) == chosenAirlines.end()) {//change getAlCode() to getAlName()
+                isValidCombination = false;
+                break;
+            }
+        }
+
+        if (isValidCombination) {
+            for (size_t i = 0; i < current.size(); ++i) {
+                cout << current[i].getDest()->getInfo().getName() << " with " << current[i].getAlCode() << " airline ";
+                if (i < current.size() - 1) {
+                    cout << "->";
+                }
+            }
+            cout << endl;
+        }
+
+        return;
+    }
+
+    // Recursive case: iterate over the current vector and call the function recursively
+    for (const auto& edge : res[depth]) {
+        current.push_back(edge);
+        generateCombinationsChosenAirlinesName(res, current, depth + 1, chosenAirlines);
+        current.pop_back();
+    }
+}
+
+bool AuxiliarFunctions::has_combination_airline_name(const vector<std::vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
+    if (depth == res.size()) {
+        // Base case: reached the last vector in res
+        bool isValidCombination = true;
+        for (const auto& edge : current) {
+            if (!chosenAirlines.empty() && std::find(chosenAirlines.begin(), chosenAirlines.end(), edge.getAlCode()) == chosenAirlines.end()) {//change getAlCode() to getAlName() func to create
+                isValidCombination = false;
+                break;
+            }
+        }
+
+        return isValidCombination;
+    }
+
+    // Recursive case: iterate over the current vector and call the function recursively
+    for (const auto& edge : res[depth]) {
+        current.push_back(edge);
+        if (has_combination_airline_name(res, current, depth + 1, chosenAirlines)) {
             return true;
         }
         current.pop_back();

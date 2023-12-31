@@ -288,8 +288,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 cout << "From: " << beg.getName()<<endl;
                                 vector<Edge<Airports>> temp;
                                 aux.generateCombinations(resvector, temp, 0);
-
-                            }
+                                resvector={};
+                                }
                             }
                         }
                     }
@@ -351,7 +351,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                     vector<Edge<Airports>> temp;
                                     aux.generateCombinations(resvector, temp, 0);
 
-
+                                    resvector={};
                                 }
                             }
                         }
@@ -456,7 +456,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 cout << "From: " << beg.getName()<<endl;
                                 vector<Edge<Airports>> temp;
                                 aux.generateCombinations(resvector, temp, 0);
-
+                                resvector={};
 
                             }
                         }
@@ -554,8 +554,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                         cout << "From: " << beg.getName()<<endl;
                                         vector<Edge<Airports>> temp;
                                         aux.generateCombinations(resvector, temp, 0);
-
-
+                                        resvector={};
                                     }
                                 }
                                 if(r==0){
@@ -631,8 +630,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                             cout << "From: " << beg.getName()<<endl;
                                             vector<Edge<Airports>> temp;
                                             aux.generateCombinations(resvector, temp, 0);
-
-
+                                            resvector={};
                                         }
                                         cout << endl;
                                     }
@@ -763,7 +761,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     cout << "  >>";
                     cin >> n;
                     cout << endl;
-                    cout << "Name of Airlines:" << endl;
+                    cout << "Code of Airlines:" << endl;
                     cout << ">> ";
                     vector<string> airlines;
                     string airline;
@@ -815,7 +813,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                     }
 
                                     vector<Edge<Airports>> temp;
-                                    if(aux.has_combination_airline(resvector, temp, 0, airlines)) {
+                                    if(aux.has_combination_airline_code(resvector, temp, 0, airlines)) {
                                         for (size_t i = 0; i < path.size(); ++i) {
                                             cout << path[i].getName();
                                             if (i < path.size() - 1) {
@@ -846,9 +844,10 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                     resvector={};
                                     cout << "From: " << beg.getName()<<endl;
                                     vector<Edge<Airports>> temp;
-                                    aux.generateCombinationsChosenAirlines(resvector, temp, 0, airlines);
-                                    //create func to check if found anything or not and print Not founf case not found
+                                    aux.generateCombinationsChosenAirlinesCode(resvector, temp, 0, airlines);
+                                    resvector={};
                                 }
+
 
                             }
                         }
@@ -890,20 +889,29 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 for (auto path: allPaths) {
                                     if (path.size() == min) {
                                             {
-                                                for (size_t i = 0; i < path.size(); ++i) {
-                                                    cout << path[i].getName();
-                                                    if (i < path.size() - 1) {
-                                                        cout << " -> ";
+                                                vector<vector<Edge<Airports>>> resvector;
+                                                for (size_t i = 0; i < path.size() - 1; ++i) {
+                                                    g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                                }
+                                                vector<Edge<Airports>> temp;
+                                                if(aux.has_combination_airline_code(resvector, temp, 0, airlines)) {
+                                                    for (size_t i = 0; i < path.size(); ++i) {
+                                                        cout << path[i].getName();
+                                                        if (i < path.size() - 1) {
+                                                            cout << " -> ";
+                                                        }
                                                     }
                                                 }
+                                                resvector={};
                                                 cout << endl;
                                             }
 
                                         }
 
                                 }
-                            }else if(res==2){
-                                vector<vector<Edge<Airports>>> res;
+                            }
+                            else if(res==2){
+                                vector<vector<Edge<Airports>>> resvector;
                                 cout << "Best Flight: " << endl;
                                 int r = 0;//flag
 
@@ -913,11 +921,12 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                         Airports beg = path[0];
                                             r++;
                                             for (size_t i = 0; i < path.size() - 1; ++i) {
-                                                g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), res);
+                                                g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
                                             }
                                             vector<Edge<Airports>> temp;
-                                            aux.generateCombinationsChosenAirlines(res,temp,0,airlines);
+                                        aux.generateCombinationsChosenAirlinesCode(resvector, temp, 0, airlines);
                                         }
+                                        resvector={};
                                         cout << endl;
                                     }
 
@@ -1002,25 +1011,34 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                             if(res==1) {
                                 cout << "Best Flight: " << endl;
                                 for (auto path: allPaths) {
+                                    vector<vector<Edge<Airports>>> resvector;
+                                    for (size_t i = 0; i < path.size() - 1; ++i) {
+                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                    }
+                                    vector<Edge<Airports>> temp;
+                                    if(aux.has_combination_airline_code(resvector, temp, 0, airlines)) {
                                         for (size_t i = 0; i < path.size(); ++i) {
                                             cout << path[i].getName();
                                             if (i < path.size() - 1) {
                                                 cout << " -> ";
                                             }
+                                        }
                                     }
+                                    resvector={};
                                     cout << endl;
 
                                 }
                             }else if(res==2){
-                                vector<vector<Edge<Airports>> >res;
+                                vector<vector<Edge<Airports>> >resvector;
                                 cout << "Best Flight: " << endl;
                                 for(auto path: allPaths){
                                     Airports beg = path[0];
                                     for(size_t i = 0; i < path.size()-1; ++i){
-                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i+1]), res);
+                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i+1]), resvector);
                                     }
                                     vector<Edge<Airports>> temp;
-                                    aux.generateCombinationsChosenAirlines(res,temp,0,airlines);
+                                    aux.generateCombinationsChosenAirlinesCode(resvector, temp, 0, airlines);
+                                    resvector={};
 
 
                                 }
@@ -1031,7 +1049,299 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     //implement wrong inputs
                 }
                 else if (n==3){
+                    cout << "Type of input" << endl;
+                    cout <<  "  >>1. Airports Codes" << endl;
+                    cout <<  "  >>2. Airports Cities" << endl;
+                    cout <<  "  >>3. Airport Coordinates" << endl;
+                    cout << "  >>";
+                    cin >> n;
+                    cout << endl;
+                    cout << "Name of Airlines:" << endl;
+                    cout << ">> ";
+                    vector<string> airlines;
+                    string airline;
+                    int num=0;
+                    cout << "number of airlines" << endl;
+                    cin >> num;
+                    if(num>0)cout << endl << "Introduce airlines:" << endl;
 
+                    while(num--){
+                        cout << ">> ";
+                        cin >> airline;
+                        airlines.push_back(airline);
+                    }
+
+                    if(n==1) {//Airport codes
+                        cout << "Source Airport code:" << endl;
+                        cout << ">> ";
+                        string source;
+                        cin >> source;
+                        cout << endl;
+                        cout << "Destination Airport code:" << endl;
+                        cout << ">> ";
+                        string dest;
+                        cin >> dest;
+                        cout << endl;
+
+                        Airports s, d;
+                        if (!aux.findVertexCode(&g, source, s) || !aux.findVertexCode(&g, dest, d)) {
+                            cout << "Invalid Airport code" << endl;
+                            return false;
+                        }
+
+                        int res;
+                        cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                        cin >> res;
+                        vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+
+                        vector<vector<Edge<Airports>>> resvector;
+                        if (res == 1) {//see city
+
+                            if (allPaths.size() == 0) {
+                                cout << "No path found" << endl;
+                            } else {
+                                cout << "Best Flight: " << endl;
+                                int r = 0;//flag
+                                for (auto path: allPaths) {
+                                    for (size_t i = 0; i < path.size() - 1; ++i) {
+                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                    }
+
+                                    vector<Edge<Airports>> temp;
+                                    if(aux.has_combination_airline_name(resvector, temp, 0, airlines)) {
+                                        for (size_t i = 0; i < path.size(); ++i) {
+                                            cout << path[i].getName();
+                                            if (i < path.size() - 1) {
+                                                cout << " -> ";
+                                            }
+                                        }
+                                        r++;
+
+                                        cout << endl;
+                                    }
+                                    resvector={};
+
+                                }
+                                if (r == 0)cout << "No Paths found" << endl;
+                            }
+                        }
+                        else if (res == 2) {//see flights
+
+                            if (allPaths.size() == 0) {
+                                cout << "No path found" << endl;
+                            } else {
+                                cout << "Best Flight: " << endl;
+                                for (auto path: allPaths) {
+                                    Airports beg = path[0];
+                                    for (size_t i = 0; i < path.size() - 1; ++i) {
+                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                    }
+                                    resvector={};
+                                    cout << "From: " << beg.getName()<<endl;
+                                    vector<Edge<Airports>> temp;
+                                    aux.generateCombinationsChosenAirlinesName(resvector, temp, 0, airlines);
+                                    //create func to check if found anything or not and print Not founf case not found
+                                }
+
+                            }
+                        }
+                    }
+                    else if(n==2){//Airport Cities
+
+                        cout << "Source Airport City:" << endl;
+                        cout << ">> ";
+                        string source;
+                        cin.ignore();
+                        getline(cin, source);
+                        cout << endl;
+                        cout << "Destination Airport City:" << endl;
+                        cout << ">> ";
+                        string dest;
+                        getline(cin, dest);
+                        cout << endl;
+
+
+                        Airports s, d;
+                        if (!aux.findVertexCity(&g, source, s) || !aux.findVertexCity(&g, dest, d)) {
+                            cout << "Invalid Airport city" << endl;
+                        }
+
+
+                        int min = 1000;
+                        vector<vector<Airports>> allPaths = aux.best_flight(&g, s, d);
+                        if (allPaths.size() == 0) {
+                            cout << "No path found" << endl;
+                        } else {
+                            int res;
+                            cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                            cin >> res;
+                            for (auto path: allPaths) {
+                                if (path.size() < min)min = path.size();
+                            }
+                            if(res==1) {// see cities
+                                cout << "Best Flight: " << endl;
+                                for (auto path: allPaths) {
+                                    if (path.size() == min) {
+                                        {
+                                            vector<vector<Edge<Airports>>> resvector;
+                                            for (size_t i = 0; i < path.size() - 1; ++i) {
+                                                g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                            }
+                                            vector<Edge<Airports>> temp;
+                                            if(aux.has_combination_airline_name(resvector, temp, 0, airlines)) {
+                                                for (size_t i = 0; i < path.size(); ++i) {
+                                                    cout << path[i].getName();
+                                                    if (i < path.size() - 1) {
+                                                        cout << " -> ";
+                                                    }
+                                                }
+                                            }
+                                            resvector={};
+                                            cout << endl;
+                                        }
+
+                                    }
+
+                                }
+                            }
+                            else if(res==2){
+                                vector<vector<Edge<Airports>>> resvector;
+                                cout << "Best Flight: " << endl;
+                                int r = 0;//flag
+
+                                for(auto path: allPaths){
+
+                                    if(path.size()==min) {
+                                        Airports beg = path[0];
+                                        r++;
+                                        for (size_t i = 0; i < path.size() - 1; ++i) {
+                                            g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                        }
+                                        vector<Edge<Airports>> temp;
+                                        aux.generateCombinationsChosenAirlinesName(resvector, temp, 0, airlines);
+                                    }
+                                    resvector={};
+                                    cout << endl;
+                                }
+
+                                if(r==0)cout << "No Paths Found" << endl;
+                            }
+                        }
+                    }
+                    else if(n==3){//coordinates
+                        cout << "Source Latitude:" << endl;
+                        cout << ">> ";
+                        float slat;
+                        cin >> slat;
+                        cout << endl;
+                        cout << "Source Longitude:" << endl;
+                        cout << ">> ";
+                        float slong;
+                        cin >> slong;
+                        cout << endl;
+
+                        cout << "Destination Latitude:" << endl;
+                        cout << ">> ";
+                        float dlat;
+                        cin >> dlat;
+                        cout << endl;
+                        cout << "Destination Longitude:" << endl;
+                        cout << ">> ";
+                        float dlong;
+                        cin >> dlong;
+                        cout << endl;
+
+                        //create verification in case input is incorrect
+                        //if latitude and longitude aren't in the globe?
+
+                        float min1 = 1000000000, min2 = 1000000000;//find better solution
+
+                        //search source airports
+                        vector<pair<Airports,float>> s,d;
+                        for(auto at : g.getVertexSet()){
+                            float clong, clat;
+                            clong = at->getInfo().getLongitude();
+                            clat = at->getInfo().getLatitude();
+                            float dis = aux.calculate_distance(slong, slat, clong, clat);
+                            if(dis <= min1){
+                                min1 = dis;
+                                pair<Airports,float> r (at->getInfo(), min1);
+                                s.push_back(r);
+                            }
+                        }
+
+                        for(auto at : g.getVertexSet()){
+                            float clong, clat;
+                            clong = at->getInfo().getLongitude();
+                            clat = at->getInfo().getLatitude();
+                            float dis = aux.calculate_distance(dlong,dlat,clong,clat);
+                            if(dis <= min2){
+                                min2 = dis;
+                                pair<Airports,float> r (at->getInfo(), min2);
+                                d.push_back(r);
+                            }
+                        }
+
+                        vector<vector<Airports>> allPaths;
+
+                        for(auto at: s){
+                            if(at.second==min1){
+                                for(auto at2: d){
+                                    if(at2.second==min2){
+                                        for (auto at3 : aux.best_flight(&g,at.first,at2.first)){
+                                            allPaths.push_back(at3);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (allPaths.size() == 0) {
+                            cout << "No path found" << endl;
+                        } else {
+                            int res;
+                            cout << "   >>1.See City" << endl << "   >>2.See Flights" << endl;
+                            cin >> res;
+                            if(res==1) {
+                                cout << "Best Flight: " << endl;
+                                for (auto path: allPaths) {
+                                    vector<vector<Edge<Airports>>> resvector;
+                                    for (size_t i = 0; i < path.size() - 1; ++i) {
+                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i + 1]), resvector);
+                                    }
+                                    vector<Edge<Airports>> temp;
+                                    if(aux.has_combination_airline_name(resvector, temp, 0, airlines)) {
+                                        for (size_t i = 0; i < path.size(); ++i) {
+                                            cout << path[i].getName();
+                                            if (i < path.size() - 1) {
+                                                cout << " -> ";
+                                            }
+                                        }
+                                    }
+                                    resvector={};
+                                    cout << endl;
+
+                                }
+                            }
+                            else if(res==2){
+                                vector<vector<Edge<Airports>> >resvector;
+                                cout << "Best Flight: " << endl;
+                                for(auto path: allPaths){
+                                    Airports beg = path[0];
+                                    for(size_t i = 0; i < path.size()-1; ++i){
+                                        g.findVertex(path[i])->getEdge(g.findVertex(path[i+1]), resvector);
+                                    }
+                                    vector<Edge<Airports>> temp;
+                                    aux.generateCombinationsChosenAirlinesName(resvector, temp, 0, airlines);
+                                    resvector={};
+
+
+                                }
+                            }
+                        }
+
+                    }
+                    //implement wrong inputs
                 }
                 else{
                     cout << "Invalid Input" << endl;
