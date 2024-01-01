@@ -1123,7 +1123,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             while (true) {
                 cout << ">> ";
                 cin >> input;
-                if (!aux.is_number(input) || stoi(input) > 5 || stoi(input) < 1) {
+                if (!aux.is_number(input) || stoi(input) > 6 || stoi(input) < 1) {
                     cout << "Invalid input key" << endl;
                     return false;
                 }
@@ -1136,7 +1136,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             if (input == "1") {
                 cout << "Input Airport Code:\n>> ";
                 cin >> input;
-                if (aux.is_number(input) || input.length() != 3) {
+                if (aux.is_number(input) || input.length() != 3 || aux.is_number(input) || !aux.is_upper(input)) {
                     cout << "Invalid input key" << endl;
                     return false;
                 }
@@ -1161,7 +1161,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             if (input == "2") {
                 cout << "Input Airport Code:\n>> ";
                 cin >> input;
-                if (aux.is_number(input) || input.length() != 3) {
+                if (aux.is_number(input) || input.length() != 3 || aux.is_number(input) || !aux.is_upper(input)) {
                     cout << "Invalid input key" << endl;
                     return false;
                 }
@@ -1186,7 +1186,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             if (input == "3") {
                 cout << "Input Airport Code:\n>> ";
                 cin >> input;
-                if (aux.is_number(input) || input.length() != 3) {
+                if (aux.is_number(input) || input.length() != 3 || aux.is_number(input) || !aux.is_upper(input)) {
                     cout << "Invalid input key" << endl;
                     return false;
                 }
@@ -1210,7 +1210,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             if (input == "4") {
                 cout << "Input Airport Code:\n>> ";
                 cin >> input;
-                if (aux.is_number(input) || input.length() != 3) {
+                if (aux.is_number(input) || input.length() != 3 || aux.is_number(input) || !aux.is_upper(input)) {
                     cout << "Invalid input key" << endl;
                     return false;
                 }
