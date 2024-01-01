@@ -10,6 +10,8 @@
 #include "Airlines.h"
 #include "Airports.h"
 #include "Graph.h"
+#include "Flights.h"
+#include "AuxiliarFunctions.hpp"
 
 using namespace std;
 
@@ -23,6 +25,7 @@ public:
     int Size(vector <string> something);
 private:
     vector<Airports> All_Airports;
+    AuxiliarFunctions aux;
     // TODO: colocar grafos com info dos 'flights'
 };
 

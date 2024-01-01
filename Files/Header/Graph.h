@@ -65,6 +65,10 @@ public:
     void getEdge(const Vertex<T>* dest, vector<Edge<T>> &res);
 
     void getEdge(const Vertex<T> *dest, vector<vector<Edge<T>>> &res);
+
+    static bool CompareByDegree(const Vertex<T>* a, const Vertex<T>* b) {
+        return a->outdegree + a->indegree > b->outdegree + b->indegree;
+    };
 };
 
 template <class T>

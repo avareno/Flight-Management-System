@@ -29,10 +29,9 @@ public:
     int flights_per_city(Graph<Airports> *g, string city, vector<Flights> &res);
     int countries_per_city(Graph<Airports> *g, string city, set<string> &res);
     int flights_per_airline(Graph<Airports> *g, string al_code, vector<Flights> &res);
-    int maximum_trip(Graph<Airports> *g, Airports soruce, Airports dest);
-    int greatest_capacity(Graph<Airports> *g, int pos);
+    int maximum_trip(Graph<Airports> *g, vector<pair<Airports,Airports>> &res);
     int articulation_points(Graph<Airports> *g);
-    //TODO: Acabar de identificar os atributos para cada função e definir todas as funções
+    int bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res);
 };
 
 #endif //PROJETO_AED_DISPLAY_H

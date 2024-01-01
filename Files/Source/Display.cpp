@@ -158,12 +158,59 @@ int Display::flights_per_airline(Graph<Airports> *g, string al_code, vector<Flig
     return i;
 }
 
-int Display::maximum_trip(Graph<Airports> *g, Airports soruce, Airports dest) {
-    return 0;
+int Display::bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res) {
+    int max_distance = 0;
+    Vertex<Airports> *v = g->findVertex(source);
+    if (v == nullptr)
+        return 0;
+
+    queue<pair<Vertex<Airports> *, int>> q;
+    for (auto v : g->getVertexSet())
+        v->setVisited(false);
+
+    q.push({v,0});
+    v->setVisited(true);
+
+    while (!q.empty()) {
+        auto p = q.front();
+        auto v = p.first;
+        int distance = p.second;
+        q.pop();
+        if (distance > max_distance) {
+            res.clear();
+            max_distance = distance;
+            res.emplace_back(v->getInfo(),distance);
+        }else if(distance == max_distance) {
+            res.emplace_back(v->getInfo(),distance);
+        }
+
+        for (auto &e : v->getAdj()) {
+            auto w = e.getDest();
+            if (!w->isVisited()) {
+                q.push({w, distance + 1});
+                w->setVisited(true);
+            }
+        }
+    }
+    return max_distance;
 }
 
-int Display::greatest_capacity(Graph<Airports> *g, int pos) {
-    return 0;
+int Display::maximum_trip(Graph<Airports> *g, vector<pair<Airports,Airports>> &res) {
+    int max_distance = 0;
+    for (Vertex<Airports> *v : g->getVertexSet()) {
+        vector<pair<Airports,int>> temp;
+        int distance = bfs_max_distance(g,v->getInfo(),temp);
+        if(distance > max_distance) {
+            res.clear();
+            max_distance = distance;
+            for (auto p : temp)
+                res.emplace_back(v->getInfo(),p.first);
+        }else if(distance == max_distance){
+            for (auto p : temp)
+                res.emplace_back(v->getInfo(),p.first);
+        }
+    }
+    return max_distance;
 }
 
 int Display::articulation_points(Graph<Airports> *g) {
