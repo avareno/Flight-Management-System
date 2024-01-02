@@ -18,7 +18,7 @@
 class Menu {
 public:
     Menu();
-    bool request(Graph<Airports> g,vector<Airlines> *als); ///< Complexity: O(n⁴)
+    bool request(Graph<Airports> g,vector<Airlines> *als); ///< Displays the menu of choices for the user. \n Complexity: O(n⁴)
 private:
     AuxiliarFunctions aux;
     Display display;

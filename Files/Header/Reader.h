@@ -22,14 +22,13 @@ using namespace std;
 class Reader {
 public:
     Reader();
-    bool fileExists(const string& filename); ///< Complexity: O(1)
-    void read_flights(Graph<Airports> *g); ///< Complexity: O(n²)
-    vector<Airlines> read_airlines(); ///< Complexity: O(n)
-    void read_airports(Graph<Airports> *g); ///< Complexity: O(n)
+    bool fileExists(const string& filename); ///< Checks if a file exists. \n Complexity: O(1)
+    void read_flights(Graph<Airports> *g); ///< Extracts information about flights and creates edges in the graph with information about flights and their distance. \n Complexity: O(n²)
+    vector<Airlines> read_airlines(); ///< Extracts information about airlines and saves them in a vector so that it can be used later. \n Complexity: O(n)
+    void read_airports(Graph<Airports> *g); ///< Extracts information about airports and creates vertexes in the graph with information about each airport. \n Complexity: O(n)
 private:
     vector<Airports> All_Airports;
     AuxiliarFunctions aux;
-    // TODO: colocar grafos com info dos 'flights'
 };
 
 #endif //PROJETO_AED_READER_H

@@ -17,38 +17,38 @@
 
 class AuxiliarFunctions {
 public:
-    bool findVertexCode(Graph<Airports> *g, string code, Airports &res); ///< Complexity: O(n)
+    bool findVertexCode(Graph<Airports> *g, string code, Airports &res); ///< Finds an Airport from its code. \n Complexity: O(n)
 
     vector<vector<Airports>>
-    best_flight(const Graph<Airports>* g, const Airports &source, const Airports &destination); ///< Complexity: O(n²)
+    best_flight(const Graph<Airports>* g, const Airports &source, const Airports &destination); ///< Finds the best flight between two airports. \n Complexity: O(n²)
 
-    bool findVertexCity(Graph<Airports> *g, string city, Airports &res); ///< Complexity: O(n)
+    bool findVertexCity(Graph<Airports> *g, string city, Airports &res); ///< Find a city’s airports. \n Complexity: O(n)
 
-    bool is_number(const string &input); ///< Complexity: O(n)
+    bool is_number(const string &input); ///< Checks if the input is a number. \n Complexity: O(n)
 
-    bool is_upper(const string &text); ///< Complexity: O(n)
+    bool is_upper(const string &text); ///< Checks if the input is in all uppercase. \n Complexity: O(n)
 
-    float calculate_distance(float slong, float slat, float dlong, float dlat); ///< Complexity: O(1)
+    float calculate_distance(float slong, float slat, float dlong, float dlat); ///< Calculates the distance between two airports. \n Complexity: O(1)
 
-    int calculate_number_of_airlines(vector<Airports> res, Graph<Airports> *g); ///< Complexity: O(n)
+    int calculate_number_of_airlines(vector<Airports> res, Graph<Airports> *g); ///< Calculate the number of airlines. \n Complexity: O(n)
 
-    bool has_aili(string aili, vector<Airports> res, Graph<Airports> *g); ///< Complexity: O(n)
+    bool has_aili(string aili, vector<Airports> res, Graph<Airports> *g); ///< Checks if a given 'aili' (presumably an airport code) exists in the edges. \n Complexity: O(n)
 
-    Airlines findAirlineCode(vector<Airlines> *v, string alcode); ///< Complexity: O(n)
+    Airlines findAirlineCode(vector<Airlines> *v, string alcode); ///< Find the airline using its code. \n Complexity: O(n)
 
-    void generateCombinations(const vector<std::vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth); ///< Complexity: O(n³)
+    void generateCombinations(const vector<std::vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth); ///< Create flights at a given distance from the starting airport. \n Complexity: O(n³)
 
     void generateCombinationsChosenAirlinesCode(const vector<vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth,
-                                                vector<string> &chosenAirlines); ///< Complexity: O(n³)
+                                                vector<string> &chosenAirlines); ///< Create flights at a given distance from the starting airport using an airport code. \n Complexity: O(n³)
 
     bool has_combination_airline_code(const vector<std::vector<Edge<Airports>>> &res, std::vector<Edge<Airports>> &current,
-                                 int depth, const std::vector<std::string> &chosenAirlines); ///< Complexity: O(n⁴)
+                                 int depth, const std::vector<std::string> &chosenAirlines); ///< Checks if there are flights within a certain distance from the starting airport using an airport code. \n Complexity: O(n⁴)
 
     void generateCombinationsChosenAirlinesName(const vector<vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current,
-                                           int depth, vector<string> &chosenAirlines); ///< Complexity: O(n³)
+                                           int depth, vector<string> &chosenAirlines); ///< Create flights at a given distance from the starting airport using an airport name. \n Complexity: O(n³)
 
     bool has_combination_airline_name(const vector<std::vector<Edge<Airports>>> &res, vector<Edge<Airports>> &current, int depth,
-                                 const vector<std::string> &chosenAirlines); ///< Complexity: O(n⁴)
+                                 const vector<std::string> &chosenAirlines); ///< Checks if there are flights within a certain distance from the starting airport using an airport name. \n Complexity: O(n⁴)
 };
 
 

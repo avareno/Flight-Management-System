@@ -18,7 +18,7 @@ bool checkIfEmpty(const string& filename){ ///< Checks if the file is empty. \n 
     return false;
 }
 
-int main() { ///< Displays the menu of choices for the user.
+int main() { ///< Call all the functions needed to setup the system.
     Reader r;
     Graph<Airports> g;
     vector<Airlines> als = r.read_airlines();
