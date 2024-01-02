@@ -30,8 +30,7 @@ public:
     int countries_per_city(Graph<Airports> *g, string city, set<string> &res);
     int flights_per_airline(Graph<Airports> *g, string al_code, vector<Flights> &res);
     int maximum_trip(Graph<Airports> *g, vector<pair<Airports,Airports>> &res);
-    int articulation_points(Graph<Airports> *g);
-    int bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res);
+    int articulation_points(Graph<Airports> *g, vector<Airports> &res);
 };
 
 #endif //PROJETO_AED_DISPLAY_H

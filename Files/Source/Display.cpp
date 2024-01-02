@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <unordered_set>
 #include "Display.h"
 
 Display::Display() {}
@@ -158,7 +159,7 @@ int Display::flights_per_airline(Graph<Airports> *g, string al_code, vector<Flig
     return i;
 }
 
-int Display::bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res) {
+int bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res) {
     int max_distance = 0;
     Vertex<Airports> *v = g->findVertex(source);
     if (v == nullptr)
@@ -213,7 +214,44 @@ int Display::maximum_trip(Graph<Airports> *g, vector<pair<Airports,Airports>> &r
     return max_distance;
 }
 
-int Display::articulation_points(Graph<Airports> *g) {
-    return 0;
+void dfs_art(Graph<Airports> *g, Vertex<Airports> *v, int &i, unordered_set<Vertex<Airports>*> &articulationPoints) {
+    v->setVisited(true);
+    v->setNum(i);
+    v->setLow(i);
+    i++;
+    int c = 0;
+
+    for (Edge<Airports> edge : v->getAdj()) {
+        Vertex<Airports> *w = edge.getDest();
+        if (!w->isVisited()) {
+            c++;
+            dfs_art(g, w, i, articulationPoints);
+            v->setLow(min(v->getLow(), w->getLow()));
+
+            if (w->getLow() >= v->getNum() && !articulationPoints.count(v)) {
+                articulationPoints.insert(v);
+            }
+        } else {
+            v->setLow(min(v->getLow(), w->getNum()));
+        }
+    }
+
+    if (v->getNum() == 0 && c > 1 && !articulationPoints.count(v)) {
+        articulationPoints.insert(v);
+    }
 }
 
+int Display::articulation_points(Graph<Airports> *g, vector<Airports> &res) {
+    unordered_set<Vertex<Airports>*> art_points;
+    Graph<Airports> undirectedGraph = g->createUndirectedGraph();
+    for (Vertex<Airports> *v : g->getVertexSet()) {
+        if (!v->isVisited()) {
+            int i = 0;
+            dfs_art(g,v,i,art_points);
+        }
+    }
+    for (Vertex<Airports> *v : art_points) {
+        res.push_back(v->getInfo());
+    }
+    return res.size();
+}

@@ -27,8 +27,9 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
     cout << ">> ";
     cin >> input;
     cout << '\n';
-    if (input.length() != 1 || !isdigit(input[0])) {
+    if (!aux.is_number(input) || stoi(input) > 7 || stoi(input) < 1) {
         cout << "Invalid input key" << endl;
+        cout << '\n';
         return false;
     }
     // Add Airport
@@ -1099,6 +1100,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             cout << "Invalid Input" << endl;
             return false;
         }
+        return false;
     }
 
     if (input == "6") {
@@ -1110,7 +1112,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
         cout << "  4. Total Number of Airports" << endl;
         cout << "  5. Total Number of Flights" << endl;
         cout << "  6. Maximum Trip" << endl;
-        cout << "  7. Return to Menu" << endl;
+        cout << "  7. Essential Airports (Articulation Points)" << endl;
+        cout << "  8. Return to Menu" << endl;
         while (true) {
             cout << ">> ";
             cin >> input;
@@ -1528,7 +1531,17 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
 
             return false;
         }
+        if (input == "7") {
+            vector<Airports> res;
+            cout << "There are " << display.articulation_points(&g,res) << " airports that are essential to the network’s circulation capability." << endl;
+            for (Airports ap : res) {
+                ap.print();
+            }
+            cout << '\n';
+            return false;
         }
-        // Exit Option
-        if (input == "7") { return true; }
+    }
+    // Exit Option
+    if (input == "7") { return true; }
+    return false;
 }

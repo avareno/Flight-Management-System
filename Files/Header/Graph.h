@@ -31,6 +31,7 @@ class Vertex {
     int num;               // auxiliary field
     int low;               // auxiliary field
 
+
     void addEdge(Vertex<T> *dest, double w, string basicString);
     bool removeEdgeTo(Vertex<T> *d);
 public:
@@ -112,6 +113,8 @@ public:
     vector<T> bfs(const T &source) const;
     vector<T> topsort() const;
     bool isDAG() const;
+
+    Graph<T> createUndirectedGraph();
 };
 
 /****************** Provided constructors and functions ********************/
@@ -551,5 +554,27 @@ vector<T> Graph<T>::topsort() const {
 
     return res;
 }
+
+/****************** undirected graph ********************/
+/*
+ * This function creates an undirected graph version of the graph,
+ * this is useful for checking the articulation points in the graph.
+ */
+
+template <typename T>
+Graph<T> Graph<T>::createUndirectedGraph() {
+    Graph<T> a;
+    for (const auto& v: vertexSet) {
+        a.addVertex(v->getInfo());
+    }
+    for (Vertex <T> *v: vertexSet) {
+        for (Edge <T> e: v->getAdj()) {
+            a.addEdge(v->info,e.getDest()->getInfo(),e.getWeight(),e.getAlCode());
+            a.addEdge(e.getDest()->getInfo(),v->info,e.getWeight(),e.getAlCode());
+        }
+    }
+    return a;
+}
+
 
 #endif /* GRAPH_H_ */

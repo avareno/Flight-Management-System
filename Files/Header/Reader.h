@@ -22,7 +22,6 @@ public:
     void read_flights(Graph<Airports> *g);
     vector<Airlines> read_airlines();
     void read_airports(Graph<Airports> *g);
-    int Size(vector <string> something);
 private:
     vector<Airports> All_Airports;
     AuxiliarFunctions aux;
