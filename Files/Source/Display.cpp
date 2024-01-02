@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <unordered_set>
 #include "Display.h"
 
 Display::Display() {}
