@@ -14,8 +14,8 @@ bool Reader::fileExists(const string& filename) {
 
 void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos os voos, 'edges' com cada voo, e posteriormente cria 'nodes', adicionar count do outdegree, esta a dar loop infinito
     Reader read;
-    if (read.fileExists("flights.csv")) {
-        ifstream in("flights.csv");
+    if (read.fileExists("../Files/Data_Files/flights.csv")) {
+        ifstream in("../Files/Data_Files/flights.csv");
         string line;
         getline(in, line);
         while (getline(in, line)) {
@@ -53,8 +53,8 @@ void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos 
 vector<Airlines> Reader::read_airlines() {
     Reader read;
     vector<Airlines> All_Airlines;
-    if (read.fileExists("airlines.csv")) {
-        ifstream in("airlines.csv");
+    if (read.fileExists("../Files/Data_Files/airlines.csv")) {
+        ifstream in("../Files/Data_Files/airlines.csv");
         string line;
         getline(in, line);
         while (getline(in, line)) {
@@ -74,8 +74,8 @@ vector<Airlines> Reader::read_airlines() {
 
 void Reader::read_airports(Graph<Airports> *g) {
     Reader read;
-    if (read.fileExists("airports.csv")) {
-        ifstream in("airports.csv");
+    if (read.fileExists("../Files/Data_Files/airports.csv")) {
+        ifstream in("../Files/Data_Files/airports.csv");
         string line;
         getline(in, line);
         while (getline(in, line)) {

@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <set>
+#include <cstdint>
+
 using namespace std;
 Menu::Menu() {
     cout << '\n';
@@ -443,7 +445,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     }
                 }
             }
-        } else if (n == "2") {
+        }
+        else if (n == "2") {
             cout << "   >>Filter:" << endl;
             cout << "   >>1.Through Number of Airlines" << endl;
             cout << "   >>2.Through Name of Airlines" << endl;
@@ -773,7 +776,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
             }
 
 
-        } else if (n == "2") {
+        }
+        else if (n == "2") {
             cout << "Type of input" << endl;
             cout << "  >>1. Airports Codes" << endl;
             cout << "  >>2. Airports Cities" << endl;
@@ -853,7 +857,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                         if (r == 0)cout << "No Paths found" << endl;
                     }
-                } else if (res == "2") {
+                }
+                else if (res == "2") {
                     if (allPaths.size() == 0) {
                         cout << "No path found" << endl;
                     } else {
@@ -878,7 +883,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         }
                     }
                 }
-            } else if (n == "2") {//Airport Cities
+            }
+            else if (n == "2") {//Airport Cities
                 cout << "Source Airport City:" << endl;
                 cout << ">> ";
                 string source;
@@ -944,7 +950,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                                 }
                             }
                         }
-                    } else if (res == "2") {
+                    }
+                    else if (res == "2") {
                         vector<Edge<Airports>> res;
                         cout << "Best Flight: " << endl;
                         int r = 0;//flag
@@ -969,7 +976,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                         if (r == 0)cout << "No Paths Found" << endl;
                     }
                 }
-            } else if (n == "3") {//coordinates
+            }
+            else if (n == "3") {//coordinates
                 cout << "Source Latitude:" << endl;
                 cout << ">> ";
                 string slat;
@@ -1006,7 +1014,7 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                     cout << "Invalid input key" << endl;
                     return false;
                 }
-                float min1 = INT64_MAX, min2 = INT64_MAX;//find better solution
+                float min1 = INT64_MAX, min2 = INT64_MAX;
                 //search source airports
                 vector<pair<Airports, float>> s, d;
                 for (auto at: g.getVertexSet()) {
@@ -1084,8 +1092,8 @@ bool Menu::request(Graph<Airports> g,vector<Airlines> *als) {
                 }
 
             }
-            //implement wrong inputs
-        } else if (n == "3") {
+        }
+        else if (n == "3") {
 
         } else {
             cout << "Invalid Input" << endl;

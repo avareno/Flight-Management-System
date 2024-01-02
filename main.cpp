@@ -29,8 +29,4 @@ int main() { ///< Displays the menu of choices for the user.
     if (m.request(g,&als)) break;
     }
     return 0;
-
-
-
-
 }
