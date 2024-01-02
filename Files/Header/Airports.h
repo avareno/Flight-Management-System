@@ -17,14 +17,14 @@ public:
     Airports(const string &code, const string &name, const string &city, const string &country, const float &latitude,
              const float &longitude);
     Airports();
-    void print() const; ///< Complexity: O(1)
-    string getCode() const; ///< Complexity: O(1)
-    string getName() const; ///< Complexity: O(1)
-    string getCity() const; ///< Complexity: O(1)
-    string getCountry() const; ///< Complexity: O(1)
-    float getLatitude() const; ///< Complexity: O(1)
-    float getLongitude() const; ///< Complexity: O(1)
-    bool operator==(const Airports& other) const; ///< Complexity: O(1)
+    void print() const; ///< Display Airports information. \n Complexity: O(1)
+    string getCode() const; ///< Get an airport code. \n Complexity: O(1)
+    string getName() const; ///< Get an airport name. \n Complexity: O(1)
+    string getCity() const; ///< Get an airport city. \n Complexity: O(1)
+    string getCountry() const; ///< Get an airport country. \n Complexity: O(1)
+    float getLatitude() const; ///< Get an airport latitude. \n Complexity: O(1)
+    float getLongitude() const; ///< Get an airport longitude. \n Complexity: O(1)
+    bool operator==(const Airports& other) const; ///< Compare two airports and check if they are the same. \n Complexity: O(1)
 private:
     string code_;
     string name_;

@@ -17,10 +17,10 @@ using namespace std;
 class Flights {
 public:
     Flights(const string& source, const string& target, const string& AL_code);
-    void print() const; ///< Complexity: O(1)
-    string getSource() const; ///< Complexity: O(1)
-    string getTarget() const; ///< Complexity: O(1)
-    string getAL_code() const; ///< Complexity: O(1)
+    void print() const; ///< Display Flights information. \n Complexity: O(1)
+    string getSource() const; ///< Get an flight source airport code. \n Complexity: O(1)
+    string getTarget() const; ///< Get an flight destination airport code. \n Complexity: O(1)
+    string getAL_code() const; ///< Get an flight airline code. \n Complexity: O(1)
     double Haversine_d(double &lat1, double& lon1, double &lat2, double& lon2) const;
 private:
     string source_;
