@@ -10,6 +10,10 @@
 
 using namespace std;
 
+/**
+ * @class Flights class provide a way to define a Flights.
+ */
+
 class Flights {
 public:
     Flights(const string& source, const string& target, const string& AL_code);

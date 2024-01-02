@@ -8,6 +8,10 @@
 
 using namespace std;
 
+/**
+ * @class Airports class provide a way to define a Airport.
+ */
+
 class Airports {
 public:
     Airports(const string &code, const string &name, const string &city, const string &country, const float &latitude,

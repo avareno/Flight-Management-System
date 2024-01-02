@@ -8,6 +8,10 @@
 
 using namespace std;
 
+/**
+ * @class Airlines class provide a way to define a Airline.
+ */
+
 class Airlines {
 public:
     Airlines(const string &code, const string &name, const string &callsign, const string &country);

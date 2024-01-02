@@ -30,3 +30,11 @@ int main() { ///< Displays the menu of choices for the user.
     }
     return 0;
 }
+
+
+/*! \mainpage AED Project
+* Projeto realizado por: \n
+* Gonçalo Morais Magalhães (202208425) \n
+* Gabriel da Quinta Braga (202207784) \n
+* Miguel Pascoal Cabral (202204996)
+*/
