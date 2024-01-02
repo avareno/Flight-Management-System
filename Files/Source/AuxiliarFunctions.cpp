@@ -106,7 +106,6 @@ void AuxiliarFunctions::generateCombinationsChosenAirlinesCode(const vector<vect
             }
             cout << endl;
         }
-        else cout << "No Path" << endl;
 
         return;
     }
@@ -166,7 +165,6 @@ void AuxiliarFunctions::generateCombinationsChosenAirlinesNumber(const vector<ve
             }
             cout << endl;
         }
-        else cout << "No Path" << endl;
 
         return;
     }
