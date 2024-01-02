@@ -11,12 +11,14 @@
 #include "AuxiliarFunctions.hpp"
 #include "Display.h"
 
+/**
+ * @class Menu class provide a way to show the user the different search options available in an interactive way, where the user can select what they want.
+ */
+
 class Menu {
 public:
     Menu();
-    bool is_number(const std::string &input);
-    bool is_upper(const std::string &input);
-    bool request(Graph<Airports> g,vector<Airlines> *als);
+    bool request(Graph<Airports> g,vector<Airlines> *als); ///< Displays the menu of choices for the user. \n Complexity: O(n⁴)
 private:
     AuxiliarFunctions aux;
     Display display;

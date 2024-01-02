@@ -18,7 +18,7 @@ bool checkIfEmpty(const string& filename){ ///< Checks if the file is empty. \n 
     return false;
 }
 
-int main() { ///< Displays the menu of choices for the user.
+int main() { ///< Call all the functions needed to setup the system.
     Reader r;
     Graph<Airports> g;
     vector<Airlines> als = r.read_airlines();
@@ -30,3 +30,11 @@ int main() { ///< Displays the menu of choices for the user.
     }
     return 0;
 }
+
+
+/*! \mainpage AED Project
+* Projeto realizado por: \n
+* Gonçalo Morais Magalhães (202208425) \n
+* Gabriel da Quinta Braga (202207784) \n
+* Miguel Pascoal Cabral (202204996)
+*/

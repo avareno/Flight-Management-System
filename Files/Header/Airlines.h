@@ -8,14 +8,18 @@
 
 using namespace std;
 
+/**
+ * @class Airlines class provide a way to define a Airline.
+ */
+
 class Airlines {
 public:
     Airlines(const string &code, const string &name, const string &callsign, const string &country);
-    void print() const; ///< Complexity: O(1)
-    string getCode() const; ///< Complexity: O(1)
-    string getName() const; ///< Complexity: O(1)
-    string getCallSign() const; ///< Complexity: O(1)
-    string getCountry() const; ///< Complexity: O(1)
+    void print() const; ///< Display Airlines information. \n Complexity: O(1)
+    string getCode() const; ///< Get an airline code. \n Complexity: O(1)
+    string getName() const; ///< Get an airline name. \n Complexity: O(1)
+    string getCallSign() const; ///< Get an airline callsign. \n Complexity: O(1)
+    string getCountry() const; ///< Get an airline country. \n Complexity: O(1)
 private:
     string code_;
     string name_;

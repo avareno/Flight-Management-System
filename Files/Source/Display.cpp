@@ -159,7 +159,7 @@ int Display::flights_per_airline(Graph<Airports> *g, string al_code, vector<Flig
     return i;
 }
 
-int bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res) {
+int Display::bfs_max_distance(Graph<Airports> *g, const Airports &source, vector<pair<Airports,int>> &res) {
     int max_distance = 0;
     Vertex<Airports> *v = g->findVertex(source);
     if (v == nullptr)
@@ -214,7 +214,7 @@ int Display::maximum_trip(Graph<Airports> *g, vector<pair<Airports,Airports>> &r
     return max_distance;
 }
 
-void dfs_art(Graph<Airports> *g, Vertex<Airports> *v, int &i, unordered_set<Vertex<Airports>*> &articulationPoints) {
+void Display::dfs_art(Graph<Airports> *g, Vertex<Airports> *v, int &i, unordered_set<Vertex<Airports>*> &articulationPoints) {
     v->setVisited(true);
     v->setNum(i);
     v->setLow(i);

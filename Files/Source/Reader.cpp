@@ -12,7 +12,7 @@ bool Reader::fileExists(const string& filename) {
     return file.good();
 }
 
-void Reader::read_flights(Graph<Airports> *g) { // TODO: Criar 'graph' de todos os voos, 'edges' com cada voo, e posteriormente cria 'nodes', adicionar count do outdegree, esta a dar loop infinito
+void Reader::read_flights(Graph<Airports> *g) {
     Reader read;
     if (read.fileExists("../Files/Data_Files/flights.csv")) {
         ifstream in("../Files/Data_Files/flights.csv");
@@ -95,4 +95,3 @@ void Reader::read_airports(Graph<Airports> *g) {
         }
     }
 }
-
