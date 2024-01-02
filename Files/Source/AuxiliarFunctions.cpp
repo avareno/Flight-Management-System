@@ -33,14 +33,6 @@ bool AuxiliarFunctions::findVertexCity(Graph<Airports>* g, string city, Airports
     return false;
 }
 
-Airlines AuxiliarFunctions::findAirlineCode(vector<Airlines>* v, string alcode) {
-    for (Airlines al : *v) {
-        if (al.getCode() == alcode) {return al;}
-    }
-    return Airlines("","","","");
-}
-
-
 
 vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g, const Airports& source, const Airports& destination) {
 
@@ -92,6 +84,8 @@ vector<vector<Airports>> AuxiliarFunctions::best_flight(const Graph<Airports>* g
     return allPaths;
 }
 
+
+
 void AuxiliarFunctions::generateCombinationsChosenAirlinesCode(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, vector<string>& chosenAirlines) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
@@ -112,6 +106,7 @@ void AuxiliarFunctions::generateCombinationsChosenAirlinesCode(const vector<vect
             }
             cout << endl;
         }
+        else cout << "No Path" << endl;
 
         return;
     }
@@ -124,7 +119,7 @@ void AuxiliarFunctions::generateCombinationsChosenAirlinesCode(const vector<vect
     }
 }
 
-bool AuxiliarFunctions::has_combination_airline_code(const vector<std::vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
+bool AuxiliarFunctions::has_combination_airline_code(const vector<vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
         bool isValidCombination = true;
@@ -151,12 +146,12 @@ bool AuxiliarFunctions::has_combination_airline_code(const vector<std::vector<Ed
 }
 
 
-void AuxiliarFunctions::generateCombinationsChosenAirlinesName(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, vector<string>& chosenAirlines) {
+void AuxiliarFunctions::generateCombinationsChosenAirlinesNumber(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, int no_air, int count, string airline) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
         bool isValidCombination = true;
         for (const auto& edge : current) {
-            if (!chosenAirlines.empty() && find(chosenAirlines.begin(), chosenAirlines.end(), edge.getAlCode()) == chosenAirlines.end()) {//change getAlCode() to getAlName()
+            if (count>no_air) {
                 isValidCombination = false;
                 break;
             }
@@ -171,66 +166,53 @@ void AuxiliarFunctions::generateCombinationsChosenAirlinesName(const vector<vect
             }
             cout << endl;
         }
+        else cout << "No Path" << endl;
 
         return;
     }
-
+    int f=0;
     // Recursive case: iterate over the current vector and call the function recursively
     for (const auto& edge : res[depth]) {
+        if (edge.getAlCode() != airline) {
+            count++;
+            f++;
+            airline = edge.getAlCode();
+        }
         current.push_back(edge);
-        generateCombinationsChosenAirlinesName(res, current, depth + 1, chosenAirlines);
+        generateCombinationsChosenAirlinesNumber(res, current, depth + 1, no_air, count, airline);
+        if(f!=0){
+            count--;
+            f=0;
+            airline = "";
+        }
         current.pop_back();
     }
 }
 
-bool AuxiliarFunctions::has_combination_airline_name(const vector<std::vector<Edge<Airports>>>& res, std::vector<Edge<Airports>> &current, int depth, const std::vector<std::string> &chosenAirlines) {
+bool AuxiliarFunctions::has_combination_airline_Number(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth, int no_air, int count, string airline) {
     if (depth == res.size()) {
         // Base case: reached the last vector in res
-        bool isValidCombination = true;
-        for (const auto& edge : current) {
-            if (!chosenAirlines.empty() && std::find(chosenAirlines.begin(), chosenAirlines.end(), edge.getAlCode()) == chosenAirlines.end()) {//change getAlCode() to getAlName() func to create
-                isValidCombination = false;
-                break;
-            }
-        }
-
-        return isValidCombination;
+        return count <= no_air;
     }
 
     // Recursive case: iterate over the current vector and call the function recursively
     for (const auto& edge : res[depth]) {
+        if (edge.getAlCode() != airline) {
+            count++;
+            airline = edge.getAlCode();
+        }
+
         current.push_back(edge);
-        if (has_combination_airline_name(res, current, depth + 1, chosenAirlines)) {
+
+        if (has_combination_airline_Number(res, current, depth + 1, no_air, count, airline)) {
             return true;
         }
+
         current.pop_back();
     }
 
     return false;
 }
-
-void AuxiliarFunctions::generateCombinations(const vector<vector<Edge<Airports>>>& res, vector<Edge<Airports>>& current, int depth) {
-    if (depth == res.size()) {
-        // Base case: reached the last vector in res
-        for (size_t i = 0; i < current.size(); ++i) {
-            cout << current[i].getDest()->getInfo().getName() << " with " << current[i].getAlCode() << " airline ";
-            if (i < current.size() - 1) {
-                cout << "->";
-            }
-        }
-        cout << endl;
-        return;
-    }
-
-    // Recursive case: iterate over the current vector and call the function recursively
-    for (const auto& edge : res[depth]) {
-        current.push_back(edge);
-        generateCombinations(res, current, depth + 1);
-        current.pop_back();
-    }
-}
-
-
 
 bool AuxiliarFunctions::is_number(const std::string &input) {
     bool hasDecimal = false;
@@ -265,32 +247,3 @@ float AuxiliarFunctions::calculate_distance(float slong, float slat, float dlong
     res = 2 * atan2(sqrt(fmem + smem), sqrt(1 - fmem - smem));
     return res;
 }
-
-int AuxiliarFunctions::calculate_number_of_airlines(vector<Airports> res, Graph<Airports> *g) {
-    vector<Edge<Airports>> edges;
-    for(size_t i = 0; i < res.size()-1; ++i){
-        g->findVertex(res[i])->getEdge(g->findVertex(res[i+1]), edges);
-    }
-
-
-    set<string> uniqueAlCodes;
-    for (auto edge : edges) {
-        uniqueAlCodes.insert(edge.getAlCode());
-    }
-    return uniqueAlCodes.size();
-}
-
-bool AuxiliarFunctions::has_aili(string aili, vector<Airports> res,Graph<Airports> *g){
-    vector<Edge<Airports>> edges;
-    for(size_t i = 0; i < res.size()-1; ++i){
-        g->findVertex(res[i])->getEdge(g->findVertex(res[i+1]), edges);
-    }
-
-    for (auto edge : edges) {
-        if(edge.getAlCode() == aili){
-            return true;
-        }
-    }
-    return false;
-}
-
